@@ -1,0 +1,3020 @@
+//-----------variables de color-------------//
+$c1 : #3e424e
+$c2 : #545966
+$c3 : #a5aab7
+$c4 : #e52f66
+$c5 : #8bc24a
+$c6 : #0079a5
+$c7 : #f2af2c
+$c8 : #fdfbe7
+$c9 : #f4fbe9
+$c10 : #fff4f4
+$c11 : #f6f6f6
+$c12 : #dcdde0
+
+//-----------------------parametros genericos-------------------------//
+*
+  margin: 0
+  padding: 0
+  text-decoration: none
+  list-style: none
+  transition: all .4s
+a:hover
+  color: $c6
+  text-decoration: none
+body
+  background-color: $c11
+.button-ap
+  padding: .4em 1em
+  border-radius: 4px
+  text-transform: uppercase
+
+//-----------------------main------------------------//
+header
+  background-color: $c1
+  padding: .5em 0
+.content-header-sin-loguear
+  display: flex
+  justify-content: space-between
+  .box-logo
+  .inf-header
+    display: flex
+    align-items: center
+    a
+      color: $c11
+      i
+        margin-right: .5em
+    .buttons-top
+      display: flex
+      margin-left: .5em
+      a
+        margin-left: .5em
+        color: $c11
+        text-transform: uppercase
+        i
+          margin-right: .3em
+      .user-top
+        background-color: $c7
+      .empresa-top
+        background-color: $c6
+      .user-top:hover
+        background-color: darken($c7, 8%)
+      .empresa-top:hover
+        background-color: darken($c6, 8%)
+.buscadr
+  background-image: url(../img/startups.jpg)
+  padding: 7em 0
+.buscadr2
+  background-image: url(../img/buscador2.jpg)
+  padding: 3em 0
+.buscadr, .buscadr2
+  background-size: 100%
+  background-position: center
+  background-repeat: none
+  .cont-buscdrr
+    width: 70%
+    margin: 0 auto
+    .text-buscdr
+      display:flex
+      justify-content: center
+      margin-bottom: 1em
+      font-size: 2em
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.29)
+      .txt1
+        margin-right: .3em
+        color: $c11
+      .txt2
+        margin-right: .3em
+        color: $c7
+    .form-buscdr
+      background-color: rgba(#3e424e, 0.87)
+      padding: .9em
+      border-radius: 4px
+      form
+        display: flex
+        justify-content: space-between
+        .coll-buscdr
+          flex: 1
+          padding: 0 .5em
+          input, select
+            padding: .3em 1em
+            box-sizing: border-box
+            height: 33px
+            width: 100%
+            border: 1px solid $c11
+            border-radius: 4px
+          button
+            height: 33px
+            width: 100%
+            background-color: $c4
+            border: 1px solid $c4
+            color: $c11
+            i
+              margin-right: .3em
+          button:hover
+            background-color: darken($c4, 6%)
+
+          p
+            margin: .4em 0 0 0
+            color: $c11
+            font-size: .9em
+          .busc-avanzada
+            margin: .4em 0 0 0
+            font-size: .9em
+            padding: 0 .5em
+            color: $c11
+            cursor: pointer
+            i
+              margin-left: .3em
+
+.inf-sub-top
+  overflow: hidden
+  background-color: white
+  .inff-sub-hed
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .text-sb-h
+      color: $c6
+      .spac1
+        display: flex
+        font-size: 1.3em
+        p
+          margin: 0 .5em 0 0
+
+    .img-sb-h
+      width: 400px
+      img
+        width: 100%
+.contenido-page
+  padding: 2.5em 0
+.box-premium
+  background-color: $c5
+  border-radius: 4px
+  padding: 1em
+  margin-bottom: 1em
+  box-sizing: border-box
+  color: white
+  display: flex
+  flex-direction: column
+  align-items: center
+  h3
+    margin: 0 0 .3em 0
+    font-weight: bold
+  h4
+    margin: 0 0 .8em 0
+    font-weight: bolder
+  li
+    display: flex
+    align-items: flex-start
+    width: 100%
+    i
+      width: 8%
+    p
+      width: 92%
+  a
+    background-color: $c1
+    color: white
+    i
+      margin-left: .5em
+  a:hover
+    background-color: darken($c1, 10%)
+.spaccc-banners
+  .box-banner
+    background-color: white
+    padding: 1em
+    box-sizing: border-box
+    img
+      width: 100%
+
+.bar-view-all
+  display: flex
+  justify-content: space-between
+  align-items: center
+  background-color: #f2f2f2
+  padding: 1em
+  box-sizing: border-box
+  border: 1px solid #e8e3e3
+  border-bottom: transparent
+  p
+    font-size: 1.3em
+    font-weight: bolder
+    margin: 0
+    color: $c1
+  a
+    background-color: $c1
+    color: white
+    i
+      margin-left: .5em
+  a:hover
+    background-color: darken($c1, 10%)
+.space-contentt-right
+  background-color: white
+  border: 1px solid #e8e3e3
+  padding: 1.5em
+  box-sizing: border-box
+  .box-publicacion
+    border: 1px solid #e8e3e3
+    color: $c1
+    border-radius: 4px
+    display: flex
+    align-items: center
+    background-color: white
+    margin-bottom: .5em
+    .box-foto-contentt
+      width: 25%
+      padding: .5em
+      box-sizing: border-box
+      img
+        width: 100%
+    .box-inf-contenttt
+      width: 75%
+      padding-left: 1em
+      box-sizing: border-box
+      h4
+        font-weight: bolder
+        margin: 0
+      .spacess-categs
+        span
+        .selectedd
+          font-weight: bolder
+      .timee-s
+        i
+          margin-right: .5em
+  .box-publicacion:hover
+    background-color: $c11
+    .box-inf-contenttt h4
+      color: $c6
+
+.separr-cattg
+  margin:  .5em
+
+.evalcc-psico
+  padding: 3em 0
+  box-sizing: border-box
+  background-image: url(../img/startups2.jpg)
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  background-attachment: fixed
+  .space-inff-conttt
+    display: flex
+    justify-content: flex-start
+    .box-contrl1
+      color: white
+      width: 35%
+      h3
+      p
+      a
+        background-color: $c5
+        color: white
+        i
+          margin-left: .5em
+.newsletter
+  padding: 1.5em
+  background-color: $c5
+  .space-newsletter
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .p-nws-ltter
+      color: white
+      h4, p
+        margin: 0
+      h4
+      p
+        font-size: .9em
+    .p-form-nws-lettr
+      form
+        input
+          padding: .4em 1em
+          border: 1px solid white
+          border-radius: 4px
+          width: 250px
+        button
+          background-color: $c1
+          border: 1px solid $c1
+          color: white
+        button:hover
+          background-color: darken($c1, 6%)
+footer
+  background-color: $c1
+  padding: 3em 0
+  .barrr
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: .5em 0
+    border-bottom: 1px solid $c2
+    a
+      color: white
+    span
+      color: white
+  .barrr-infff
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: .5em 0
+    border-bottom: 1px solid $c2
+    .box-logo-footer
+      width: 20%
+      img
+        width: 100%
+    .contenttt-footer
+      width: 60%
+      padding-left: 1em
+      box-sizing: border-box
+      color: white
+      .legalll
+        font-weight: bolder
+      .contaccct
+        display: flex
+        align-items: center
+        .sppppas
+          color: white
+          i
+            margin-right: .5em
+          span
+    .social-networks
+      display: flex
+      justify-content: flex-end
+      width: 20%
+      a
+        width: 40px
+        height: 40px
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-left: .5em
+        color: $c2
+        border: 2px solid $c2
+        border-radius: 50%
+      a:hover
+        background-color: $c2
+        color: $c1
+.barrr-id-visual-cl
+  width: 100%
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  span
+    color: $c3
+  a
+    color: $c11
+.opciones-usuarios
+  background-color: $c12
+  .space-optciones-user
+    .optciones-user
+      display: flex
+      justify-content: center
+      width: 100%
+      .opcin-user
+        display: flex
+        align-items: center
+        justify-content: center
+        position: relative
+        color: $c1
+        padding: 0 1em
+        cursor: pointer
+        flex: 1
+        .icon-opcion
+          margin-right: .5em
+          width: 35px
+          position: relative
+          i
+            font-size: 2em
+          .notifff
+            position: absolute
+            top: -5px
+            right: 0
+            font-size: .7em
+            background-color: rgb(255, 0, 38)
+            width: 17px
+            height: 17px
+            border-radius: 50%
+            display: flex
+            justify-content: center
+            align-items: center
+            color: white
+        .text-opcion
+          text-align: center
+        .notiffff__a
+          position: absolute
+          background-color: rgb(255, 0, 38)
+          bottom: -10px
+          right: 10px
+          width: 20px
+          height: 20px
+          color: white
+          display: flex
+          justify-content: center
+          align-items: center
+          border-radius: 50%
+      .opcin-user:hover
+        background-color: $c11
+      .active
+        background-color: $c11
+.contennnt-servvv__a
+  background-color: $c11
+  padding: 4em 0
+  .list-servv__a
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 1em 0
+    margin-bottom: 1.5em
+    border-bottom: 1px solid $c3
+    min-height: 330px
+    .servicioo__a
+      display: flex
+      flex-direction: column
+      align-items: center
+      span
+        width: 80px
+        height: 80px
+        font-size: 2em
+        border: 2px solid $c1
+        border-radius: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+        i
+      h3
+        font-size: 2em
+        text-align: center
+    p
+      text-align: center
+.contantanos__a
+  padding: 4em 0
+  box-sizing: border-box
+  form
+    .opcion-contacc__a
+      display: flex
+      justify-content: space-between
+      margin-bottom: .5em
+      label
+      input
+        width: 70%
+        padding: .5em
+        border-radius: 4px
+        border: 1px solid $c3
+    .otra-opcion__a
+      h5
+      .forma-de-contacto__a
+        display: flex
+        justify-content: space-between
+        .opcionnn__a
+          label
+          input
+        .pop-up__a
+          position: relative
+          .pop-up-ventt__a
+            position: absolute
+            right: 0
+            z-index: 2
+            padding: .5em
+            background-color: rgb(231, 231, 231)
+            border-radius: 4px
+            display: none
+            input
+              padding: .5em
+            .fecha-hora
+              display: flex
+              justify-content: space-between
+              input
+                width: 49%
+                margin-bottom: .3em
+                border-radius: 4px
+                border: 1px solid $c3
+            input
+              border-radius: 4px
+              border: 1px solid $c3
+  iframe
+    width: 100%
+    max-height: 350px
+.spaccc-datos-empleados__a
+  padding: 2em 0
+  form
+    .boxx-oppptss__a
+      .opcion1-tipo-user__a
+        display: flex
+        margin-bottom: 2em
+        label
+        input
+          margin-right: .5em
+
+    .contenido-formmm1__a, .contenido-formmm2__a
+      display: flex
+      align-items: center
+      margin-bottom: .5em
+      label
+        margin: 0
+        span
+          color: $c4
+      input
+        padding: .5em
+        border-radius: 4px
+        border: 1px solid $c3
+      .aj5
+        margin-right: .5em
+      a
+        margin-left: .5em
+        font-size: .8em
+    .contenido-formmm1__a
+      justify-content: space-between
+      input
+        width: 70%
+    .contenido-formmm2__a
+      justify-content: center
+    .spacccc-butttns1__a
+      display: flex
+      justify-content: space-between
+      .create__a
+        background-color: $c5
+        border: 1px solid $c5
+        color: white
+      .create__a:hover
+        background-color: darken($c5, 8%)
+      .back__a
+        background-color: $c1
+        border: 1px solid $c1
+        color: white
+      .back__a:hover
+        background-color: darken($c1, 8%)
+
+.contanidddd-mejss__a
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  min-height: 300px
+  form
+    label
+    input
+      padding: .5em
+      border-radius: 4px
+      border: 1px solid $c3
+      min-width: 300px
+    button
+      border: 1px solid $c5
+      background-color: $c5
+      color: white
+.box-datos-admmm__a
+  h2
+    text-align: center
+    margin-bottom: 1em
+.informm__a
+  min-height: 300px
+  padding: 2em 0
+  .aj6
+    display: flex
+    justify-content: center
+    .boox-aj6__a
+      width: 80%
+      .informaccion__a
+        display: flex
+        justify-content: flex-start
+        margin-bottom: .5em
+        .aaaa__a, .bbbb__a, .cccc__a
+          padding: .5em
+          box-sizing: border-box
+          border-radius: 4px
+        .aaaa__a
+          width: 30%
+          font-weight: bolder
+        .bbbb__a
+          width: 40%
+          border: 1px solid $c3
+        .cccc__a
+          width: 30%
+          a
+            background-color: $c5
+            color: white
+.tttiip1__a
+  padding: 2em
+  display: flex
+  flex-direction: column
+  .top-cuenta__a
+    background-color: $c3
+    display: flex
+    justify-content: center
+    padding: .5em
+    color: $c12
+  .usuarr__aa
+    display: flex
+    justify-content: center
+    padding: .5em
+    border: 1px solid $c3
+  .space-admm__a
+    display: flex
+    padding: .5em
+    border-bottom: 1px solid $c3
+    .adminisss__a
+      width: 20%
+      padding: .5em
+      font-weight: bolder
+    .id-ammmd__a
+      width: 50%
+      display: flex
+      justify-content: space-between
+      .name-admmm__a
+      .btn-admmm__a
+        padding: .5em
+        width: 50%
+        button
+          width: 100%
+    .id-admmm-opcions__a
+      padding: .5em
+      width: 15%
+      button
+        width: 100%
+.space-datos-personnn__a
+  display: flex
+  justify-content: space-between
+  margin-bottom: .5em
+  .dato1__a
+    width: 40%
+    padding: .5em
+  .answr1__a
+    width: 80%
+    padding: .5em
+    border: 1px solid $c3
+    input
+.diiiif1__a
+  margin-bottom: .5em
+.spaceee-btn1__a
+  display: flex
+  justify-content: space-between
+  .edit-datoss1__a
+    background-color: $c5
+    color: white
+    border: 1px solid $c5
+
+.spaceee-btn-enviar-recaptcha__a
+  display: flex
+  justify-content: space-between
+  align-items: flex-end
+  padding: 2em 0
+  button
+    border: 1px solid $c5
+    background-color: $c5
+    color: white
+    width: 150px
+    height: 40px
+
+.datos-avisos__a
+  min-height: 300px
+  padding: 2em 0
+  .opciones-de-avisos__a
+    display: flex
+    flex-direction: column
+    .opcioneees-avisos__a
+      padding: 1em
+      box-sizing: border-box
+      border: 1px solid $c5
+      margin-bottom: 1em
+      border-radius: 4px
+    .active
+      background-color: $c5
+      color: white
+
+.space-btnss-publicaciones__a
+  display: flex
+  justify-content: space-between
+  button
+    border: 1px solid $c5
+    background-color: $c5
+    color: white
+
+.informaa-avisos__a
+  .informacion-avisos1__a
+    display: flex
+    justify-content: space-between
+    margin-bottom: .5em
+    label
+      display: flex
+      flex-direction: column
+      p
+        font-size: .7em
+    input, select
+      width: 60%
+      padding: .5em
+      border-radius: 4px
+      border: 1px solid $c3
+    .space-adiccion__a
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 60%
+      input
+        width: 50%
+        padding: .5em
+      select
+        width: 50%
+        padding: .5em
+      .otrasd__a
+        display: flex
+        align-items: center
+        width: 50%
+        select
+          width: 20%
+          margin-left: 1em
+          padding: .5em
+      .otraaa__a
+        width: 49%
+        display: flex
+        input
+          width: 100%
+          padding: .5em
+.space-publicacion-vaciaa
+  display: flex
+  justify-content: center
+  align-items: center
+  .publll-viggg__a
+    font-size: 2em
+    color: $c4
+.spaceee-lista-publicaciones-vigentes__a
+  h4
+    font-size: 2em
+  .top-lista-publicaciones__a
+    display: flex
+    justify-content: space-between
+    padding: 1.5em 0
+    font-weight: bolder
+    .aaaab__a
+      flex: 1
+    .top-listadoo__a
+  .listadoo1__a
+    display: flex
+    justify-content: space-between
+    border-bottom: 1px solid $c3
+    margin-bottom: 1em
+    .aaaab__a
+      flex: 1
+      a
+.carrrgo1__a
+  width: 20%
+.sssp-btn__a
+  width: 230px
+  display: flex
+  justify-content: space-between
+  button
+    padding: .3em .5em
+    border: 1px solid $c3
+    background-color: $c3
+    color: $c1
+    margin: 0
+  button:hover
+    background-color: $c5
+    border: 1px solid $c5
+.space-top1__a
+  border: 1px solid $c3
+  padding: 1em
+  box-sizing: border-box
+  a
+    color: $c1
+    h1
+      margin: 0
+  .dato-inf-publii__a
+    .tiiip-dato
+      color: $c1
+      font-weight: bolder
+      span
+    .tipo-vista-publiccc__a
+      display: flex
+      .viiiis__a
+        margin-right: 1.5em
+        label
+        input
+          margin-left: .5em
+    .buscadrrr-cv__a
+      width: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      label
+        margin-right: .5em
+      input
+        width: 60%
+        padding: .5em
+        margin-right: -2px
+        border: 1px solid $c3
+      button
+        padding: .5em
+        background-color: $c3
+        border: 1px solid $c3
+        color: white
+.ordenar-por__a
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border: 1px solid $c3
+  padding: .5em
+  box-sizing: border-box
+  border-top: transparent
+  .orrrr__a
+    font-weight: bolder
+    width: 15%
+  a
+    display: flex
+    justify-content: center
+    color: $c5
+.space-paginnndr__a
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid $c3
+  padding: .5em
+  border-top: transparent
+  .cantidadeees-cv__a
+    display: flex
+    font-weight: bolder
+    span
+      margin-left: .5em
+    .sfsff__a
+      margin: 0 .5em
+  .paginador-letter__a
+    margin: 0 .5em
+    a
+    span
+      margin: 0 .5em
+.space-accionesss__a
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid $c3
+  padding: .5em
+  border-top: transparent
+  span
+    margin: 0 .5em
+.baaaarrr__a
+  display: flex
+  justify-content: space-between
+  border: 1px solid $c3
+  border-top: transparent
+  font-size: .8em
+  .ssssppas__a, select, button
+    flex: 1
+    border-top: transparent
+    border-bottom: transparent
+    background-color: $c10
+    border: 1px solid $c3
+  .ssssppas__a
+    display: flex
+    align-items: center
+  select
+  button
+  .seeend
+    background-color: $c5
+    color: white
+.spaceee-iiinnfff__a
+  border: 1px solid $c3
+  padding: .5em
+  border-top: transparent
+  .space-datoooos
+    font-weight: bolder
+    margin-bottom: .5em
+  img
+    width: 100%
+.sub-infff1__a
+  img
+    width: 100%
+.spaceee-conttt-ini__a
+  display: flex
+  justify-content: space-between
+  .img-conttt-inicc__a
+    width: 20%
+    img
+      width: 100%
+  .conttt-inicc__a
+    width: 80%
+    padding: 0 1em
+    font-size: 1.2em
+.contenido-p-inicio__a
+  text-align: center
+  margin-bottom: 1.5em
+  border-bottom: 1px solid $c3
+  padding: 1em 0
+  .contenidd-inicio__a
+    list-style: circle
+    font-size: 1.2em
+.quienes-somos__a
+  padding: 4em 0
+  h1
+    text-align: center
+    border-bottom: 2px solid $c5
+    margin-bottom: 1em
+  p
+    text-align: justify
+.tttop-miemmmmbr__a
+  h3
+    text-align: center
+    border-bottom: 2px solid $c5
+    margin: 0 0 1em 0
+    padding: 0 0 .5em 0
+
+.space-ulmt-ingrs__a
+  .box-ultt-inggg__a
+    display: flex
+    justify-content: center
+    margin-bottom: .5em
+    span,   .dato-ulttt__a
+      padding: .5em
+    span
+      width: 20%
+      font-weight: bolder
+    .dato-ulttt__a
+      border: 1px solid $c3
+      border-radius: 4px
+      width: 50%
+    .spaceee-btn-ult-inggr__a
+      width: 20%
+      button
+        margin-left: .5em
+        width: 100%
+        background-color: $c5
+        color: white
+        border: 1px solid $c5
+.bdy-mail__a
+  h1
+    text-align: center
+    margin-bottom: 1em
+  p
+    text-align: justify
+  .mmmmgss__a
+    margin-bottom: 2em
+    font-size: 1.3em
+  .finnn-msgg__a
+    margin-bottom: 2.5em
+  h3
+    margin-bottom: 2em
+.spaaaaac-bannnr1__a
+  border-right: 1px solid $c3
+  display: flex
+  flex-direction: column
+  align-items: center
+  h2
+    text-align: center
+    border-bottom: 2px solid $c5
+  .box-infff-publiccc__a, .box-infff-publiccc2__a
+    border: 1px solid $c3
+    padding: .5em
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 4px
+    margin-bottom: 1em
+  .box-infff-publiccc__a
+    width: 100%
+.demo-chartsss__a
+  img
+    width: 100%
+.inffff1__a
+  font-weight: bolder
+.checksss__a
+  display: flex
+  width: 50%
+  .box-checcckkks__a
+    display: flex
+    justify-content: space-between
+    width: 100%
+    label
+      width: 80%
+    input
+      width: 20%
+
+
+.space-publliii1__a
+  display: flex
+  justify-content: space-between
+  .datttss1__a
+    display: flex
+    width: 30%
+    border: 1px solid $c3
+    border-top: transparent
+    border-right: transparent
+    padding: .5em
+    .spaaacc-inpt__a
+      width: 10%
+      input
+    .datos-inffff__a
+      width: 90%
+      li
+        font-weight: bolder
+        margin-bottom: .3em
+  .datttss2__a
+    display: flex
+    justify-content: space-between
+    width: 70%
+    border: 1px solid $c3
+    border-top: transparent
+    padding: .5em
+    .mittt-datttss1__a
+      li
+        font-weight: bolder
+        margin-bottom: .3em
+    .mittt-datttss2__a
+      .spaccc-btnss-vistt__a
+        margin-bottom: .2em
+        select, button
+          padding: .2em
+          border: 1px solid $c5
+          border-radius: 4px
+        select
+        button
+          background-color: $c5
+.space-bussccdr__a
+  display: flex
+  justify-content: center
+  border: 1px solid $c3
+  border-bottom: transparent
+  padding: 1em
+  box-sizing: border-box
+  button, input
+    padding: .5em
+    border-radius: 4px
+  button
+    margin-right: .5em
+    border: 1px solid $c5
+    background-color: $c5
+    color: white
+  input
+    border: 1px solid $c3
+    width: 50%
+.space-tabble1__a
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border: 1px solid $c3
+  border-bottom: transparent
+  padding: 1em
+  box-sizing: border-box
+  .boddg__a
+    width: 25%
+    input
+      margin-right: .5em
+  .boddg-commmt__a
+    width: 50%
+    display: flex
+    justify-content: flex-start
+  .head-tabbbl__a
+    font-weight: bolder
+.sapce-tabble-buttns__a
+  display: flex
+  justify-content: space-between
+  padding: 1em
+  box-sizing: border-box
+  border: 1px solid $c3
+  .boxxx-btns1__a
+    display: flex
+    align-items: center
+    p
+      margin: 0 .5em 0 0
+    button
+      padding: .5em
+      border: 1px solid $c5
+      background-color: $c5
+      color: white
+      border-radius: 4px
+    select
+      margin-right: .5em
+      padding: .5em
+      border: 1px solid $c5
+      border-radius: 4px
+  .diffff2__a
+    button
+      margin-left: .5em
+.space-filtrrr1__a
+  display: flex
+  justify-content: flex-start
+  border: 1px solid $c3
+  padding: 1em
+  span
+    margin-right: 2em
+    label
+      margin-right: .5em
+
+.space-tablllb-cvs1__a
+  display: flex
+  justify-content: space-between
+.space-tablllb-cvs1__a, .space-tablllb-cvs2__a
+  border: 1px solid $c3
+  border-top: transparent
+  padding-top: .5em
+.space-bos-ajjj1__a
+  width: 10px
+  display: flex
+  justify-content: center
+  align-items: center
+.space-bos-ajjj2__a
+  width: 100px
+  .box-notsss-cv__a
+    border: 1px solid $c3
+    padding: .3em
+    box-sizing: border-box
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+.box-optt1__a
+  display: flex
+  flex: 1
+  justify-content: flex-start
+  align-items: center
+  padding: .5em
+  box-sizing: border-box
+  cursor: pointer
+  i
+    margin-left: .3em
+.space-tablllb-cvs2__a
+  border-bottom: transparent
+  flex-direction:column
+  .spaceeee-cv2-tabbbll__a
+    display: flex
+    width: 100%
+  .othrrr-infff-cv1-tabbll__a
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    padding: .5em
+    border-bottom: 1px solid $c3
+    .box-questttnsss__a
+    .box-bbbtnnnss__a
+      display: flex
+      align-items: flex-end
+      button
+        padding: .5em
+        height: 40px
+        border: 1px solid $c5
+        background-color: $c5
+        border-radius: 4px
+        color: white
+      .mmmmsggg__a
+        margin-right: .5em
+      .new-spaccc__a
+        display: flex
+        flex-direction: column
+        select
+          width: 40px
+          margin-bottom: .5em
+        button
+.pagggndrrr2__a
+  display: flex
+  justify-content: center
+  align-items: center
+  a, span
+    padding: .5em
+    color: $c5
+.otros-botoneeees1__a
+  display: flex
+  justify-content: space-between
+  margin: 0 auto
+  width: 50%
+  span, select, button
+    padding: .4em .5em
+  select, button
+    border: 1px solid $c5
+  button
+    background-color: $c5
+    color: white
+    border-radius: 4px
+.otros-botoneeees2__a
+  display: flex
+  justify-content: space-between
+  width: 30%
+  margin-top: 1em
+  span, select, button
+    padding: .4em .5em
+  select, button
+    border: 1px solid $c5
+  button
+    background-color: $c5
+    color: white
+    border-radius: 4px
+.diffdff__a
+  button
+    padding: .5em
+    border: 1px solid $c5
+    background-color: $c5
+    color: white
+    border-radius: 4px
+
+.seleelcc-personnnl1__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  p
+  a
+    border: 1px solid $c5
+    background-color: $c5
+    border-radius: 4px
+    color: white
+
+
+.inffff-prfrfrll1__a
+  .space-fpomrrr1__a
+    display: flex
+    margin-bottom: .5em
+    label
+      width: 50%
+      span
+    input
+      width: 50%
+      padding: .5em
+      border-radius: 4px
+      border: 1px solid $c3
+.mensajeeeee1__a
+  textarea
+    width: 100%
+    border: 1px solid $c3
+    border-radius: 4px
+    padding: .5em
+.othrrr-inffff-pfrrll1__a
+  margin: 1em 0
+  p
+    font-size: 1.2em
+  .space-inpuses-contaccc1__a
+    display: flex
+    justify-content: space-between
+    .box-contactttt-infoff1__a
+      display: flex
+      flex-direction: column
+      align-items: center
+      label
+      input
+        width: 100%
+        margin-bottom: 1em
+        border: 1px solid $c3
+        padding: .5em
+        border-radius: 4px
+.sapce-bbtbtttsss1__a
+  display: flex
+  justify-content: space-between
+  button
+    border: 1px solid $c5
+    background-color: $c5
+    color: white
+.texxxxto1__a
+  text-align: center
+  p
+    font-size: 1.2em
+    margin-bottom: 1.5em
+  a
+    border: 1px solid $c5
+    color: $c5
+  a:hover
+    background-color: $c5
+    color: white
+
+.space-forrrmmm1__a
+  display: flex
+  align-items: center
+  margin-bottom: .8em
+  .boxssx-inf1__a
+    font-weight: bold
+    margin-right: 1em
+  .optttt-infff1__a
+    display: flex
+    .boxxxita__a
+      margin-right: 2em
+      label
+      input
+    .boxxxita2__a
+      margin-right: 2em
+      label
+      input
+        padding: .3em
+        border-radius: 4px
+        border: 1px solid $c3
+    .boxxxita3__a
+      margin-right: 2em
+      label
+      input
+        width: 50px
+        border-radius: 4px
+        border: 1px solid $c3
+      span
+        margin: 0 .5em
+        font-weight: bolder
+  span
+    margin: 0 2em
+  .optttt-infff2__a
+    width: 50%
+    display: flex
+    input
+      width: 100%
+      padding: .3em
+      border-radius: 4px
+      border: 1px solid $c3
+.difffdss__a
+  font-weight: bolder
+
+.space-forrrmmm2__a
+  display: flex
+  justify-content: space-between
+  margin-bottom: 2em
+  .inffff-adaddd1__a
+    h3
+      input
+        margin-left: 1em
+      label
+        font-size: 1.2rem
+    .space-uunn1__a
+      display: flex
+      .box-datttsss1__a
+        width: 200px
+        border: 1px solid $c3
+        border-radius: 4px
+        padding: .5em
+        box-sizing: border-box
+        max-height: 120px
+        overflow-y: scroll
+        li
+      .arrrrwsss1__a
+        border: 1px solid $c3
+        border-radius: 4px
+        padding: .5em
+        display: flex
+        flex-direction: column
+        justify-content: center
+        margin: 0 1em
+        li
+          padding: .5em
+.inffff-adaddd2__a
+  width: 42%
+  .seccctionnn-inffff__a
+    display: flex
+    justify-content: space-between
+
+.innnnf-publcc__a
+  display: flex
+  align-items: center
+  margin-bottom: 1em
+  input
+    margin-right: 1em
+  .boxx-img-pubbbl__a
+    width: 100px
+    height: 150px
+    border: 2px solid rgb(0, 26, 84)
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    margin-right: 1em
+    font-weight: bolder
+    font-size: 1.3em
+    .bossxxxita
+      position: absolute
+      width: 30px
+      height: 30px
+      border: 2px solid rgb(0, 26, 84)
+      bottom: -2px
+      right: -2px
+      display: flex
+      justify-content: center
+      align-items: center
+      color: rgb(0, 26, 84)
+    .bossxxxita:hover
+      cursor: pointer
+  span
+    font-size: 1.5em
+  .boxx-img-pubbbl2__a
+    border: 2px solid rgb(0, 26, 84)
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 200px
+    height: 150px
+    padding: .5em
+    box-sizing: border-box
+    text-align: center
+    margin-right: 1em
+    font-weight: bolder
+    font-size: 1.3em
+.space-mailll1__a
+  display: flex
+  flex-direction: column
+  button
+    width: 100%
+    margin-bottom: .5em
+    padding: .5em
+    box-sizing: border-box
+    border: 1px solid $c5
+    background: white
+    color: $c5
+  button:hover
+    background-color: $c5
+    color: white
+  .active
+    background-color: $c5
+    color: white
+  .space-buscarddddr-mail1__a
+    width: 100%
+    display: flex
+    align-items: center
+    margin-bottom: 1em
+    input
+      width: 80%
+      border: 1px solid $c3
+      border-right: transparent
+      padding: .5em
+      box-sizing: border-box
+    button
+      width: 20%
+      margin: 0
+      padding: .5em
+      box-sizing: border-box
+      border: 1px solid $c3
+      border-left: transparent
+      background-color: white
+    button:hover
+      background-color: $c5
+      color: white
+
+.box-top-actionsss__a
+  display: flex
+  justify-content: flex-end
+  margin-bottom: 1em
+  padding-bottom: .5em
+  border-bottom: 1px solid $c3
+  button
+    margin-left: .5em
+    padding: .5em
+    background-color: white
+    border: 1px solid $c5
+    border-radius: 4px
+    color: $c5
+  button:hover
+    background-color: $c5
+    color: white
+.spaceee-mensajeeee1__a
+  border-bottom: 1px solid $c3
+  margin-bottom: .5em
+  .contennnt-mennnssjj1__a
+    display: flex
+    .mittd1__a
+      display: flex
+      align-items: flex-start
+      .box-phototooo1__a
+        width: 90px
+        height: 120px
+        border: 2px solid $c6
+      .contannnnffddd-contactt__a
+        width: 90%
+        padding-left: 1em
+        box-sizing: border-box
+        h3
+          margin-top: 0
+        h4
+        p
+          text-align: justify
+  .box-top-dateeees__a
+    display: flex
+    justify-content: flex-end
+    .datossss-mensaje1__a
+      display: flex
+      .dato-msnnnsnd1__a
+        margin-left: 1em
+      input
+        margin-left: 1em
+.spaceeee-butttns-actionsss-mensaje2__a
+  display: flex
+  justify-content: center
+.spaceeee-butttns-actionsss-mensaje__a, .spaceeee-butttns-actionsss-mensaje2__a
+  border-bottom: 1px solid $c3
+  padding-bottom: .5em
+  button
+    margin-left: .5em
+    padding: .5em
+    background-color: white
+    border: 1px solid $c5
+    border-radius: 4px
+    color: $c5
+  button:hover
+    background-color: $c5
+    color: white
+.space-mensajeee-mail1__a
+  textarea
+    width: 100%
+.spacee-new-mail__a
+  input, textarea
+    border: 1px solid $c3
+    border-radius: 4px
+    width: 100%
+    padding: .5em
+    box-sizing: border-box
+    margin-bottom: .5em
+.spacccc-logg-reggg1__a
+  min-height: 300px
+  padding: 2em 0
+.tttip-loggg1__a
+  background-image: url(../img/bg1-logg.jpg)
+  background-repeat: no-repeat
+  background-size: cover
+  background-attachment: fixed
+.box-formmrr-loggg
+  background-color: rgba(255, 255, 255, 0.7)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.44)
+  border-radius: 4px
+  padding: 1em
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  align-items: center
+  h2
+    text-align: center
+    margin-top: 0
+  h4
+    text-align: center
+  input
+    padding: .5em
+    margin-bottom: .5em
+    width: 100%
+    border-radius: 4px
+    border: 1px solid $c3
+  .firssst-space-form1__a
+    width: 100%
+    display: flex
+    justify-content: space-between
+    input
+      width: 49%
+  p
+    font-size: .8em
+    font-weight: bolder
+  button
+    width: 300px
+    padding: .5em
+    border: 1px solid $c5
+    border-radius: 4px
+    background-color: $c5
+    color: white
+.for-pasworrrssss1__a
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  p
+    margin: .2em 0 1em 0
+.eeew-ingrrr__a
+  h2
+    text-align: center
+    border-bottom: 2px solid $c5
+  .box-inf.registroooo1__a
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-top: 2em
+    .boxxx-datossss1__a
+      display: flex
+      justify-content: center
+      margin-bottom: 1em
+      i
+        background-color: $c6
+        color: white
+        width: 35px
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 1.4em
+        border-radius: 4px
+        margin-right: .5em
+      button
+        padding: .5em
+        border: 1px solid $c5
+        border-radius: 4px
+        background-color: white
+        color: $c5
+      button:hover
+        background-color: $c5
+        color: white
+
+.boxxx-infforrr1__a
+  h3
+    border-bottom: 1px solid $c3
+    padding: .5em 0
+    margin-bottom: 1em
+  .boxxx-infforrr2__a
+.ssspccc-inpusssess1__a
+  display: flex
+  flex-direction: column
+  .inpppputt1__a
+    width: 100%
+    display: flex
+    justify-content: space-between
+    margin-bottom: .5em
+    label
+    input
+      width: 70%
+      padding: .5em
+      border-radius: 4px
+      border: 1px solid $c3
+    .box-for-rut__a
+      width: 70%
+      display: flex
+      align-items: center
+      label
+      input
+      span
+        margin: 0 .5em
+    span
+    .for-rut1
+      width: 50%
+    .for-rut2
+      width: 40px
+    select
+      width: 70%
+      padding: .5em
+      border-radius: 4px
+      border: 1px solid $c3
+  .inpppputt2__a
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: .5em
+    .nacimientooo1__a
+      label
+      input
+        margin-left: 1em
+        padding: .5em
+    .generooo1__a
+      display: flex
+      span
+        font-weight: bold
+      .categg1__a
+        margin-left: 1em
+        label
+        input
+.pasosososss1__a
+  margin-top: 1em
+  .box-pasoooo1__a
+    border: 1px solid $c5
+    color: $c5
+    padding: 1em
+    box-sizing: border-box
+    display: flex
+    justify-content: center
+    align-items: center
+  .box-pasoooo1__a:hover
+    background-color: $c5
+    color: white
+  .active
+    background-color: $c5
+    color: white
+.ssspccc-inpusssess3__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+  margin-bottom: .5em
+  .inpppputt3__a
+    width: 100%
+    display: flex
+    justify-content: space-between
+    label
+      width: 30%
+    label, input, select
+      display: flex
+      justify-content: space-between
+      padding: .5em
+      box-sizing: border-box
+    input, select
+      width: 38%
+      border: 1px solid $c3
+      border-radius: 4px
+    select
+      margin-right: .5em
+.space-fechas-ini-fin__a
+  display: flex
+  margin-bottom: .5em
+  .spppacc1__a
+    display: flex
+    margin-right: 1.5em
+    label
+      margin-right: .5em
+    input, label
+      padding: .5em
+
+.space-new-inffrorr1__a
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: .5em
+  input, label, select
+    padding: .5em
+  .diiiifff2__a
+    width: 70%
+.deffff-tip-sollll__a
+  display: flex
+  .buscasss1__a
+    font-weight: bolder
+    width: 20%
+  .tiiiip2__a
+    display: flex
+    width: 80%
+    span
+      font-weight: bold
+      margin-right: 2em
+      width: 20%
+    .tiiiip2-opciones__a
+      display: flex
+      .boooox-option__a
+        display: flex
+        margin-right: 2em
+        label
+          margin-right: .5em
+        input
+.botones-pasos1__a
+  display: flex
+  justify-content: flex-end
+  button
+    border: 1px solid $c5
+    border-radius: 4px
+    background-color: white
+    color: $c5
+    margin-left: .5em
+  button:hover
+    background-color: $c5
+    color: white
+.booox-datos-practtcce__a
+  padding: .5em
+  box-sizing: border-box
+  border: 1px solid $c3
+  border-radius: 4px
+  margin-bottom: 1em
+  .lineee1__a
+    display: flex
+    margin-bottom: .5em
+    input
+      border-bottom: 1px solid $c3
+      border-top: none
+      border-left: none
+      border-right: none
+      background: transparent
+    span
+    select
+.small1__a
+  width: 50px
+  padding: 0 .5em
+  box-sizing: border-box
+  margin: 0 .5em
+
+.space-dato-experiencia1__a, .space-dato-experiencia2__a, .space-dato-experiencia3__a
+  display: flex
+.space-dato-experiencia1__a
+  justify-content: space-between
+  margin-bottom: .5em
+  input
+    width: 80%
+    padding: .5em
+    border: 1px solid $c3
+    border-radius: 4px
+.space-dato-experiencia2__a
+  margin-bottom: .5em
+  justify-content: space-between
+  .aaajj1__a
+    width: 80%
+    display: flex
+    input
+      width: 79%
+      border: 1px solid $c3
+      border-radius: 4px
+    select
+      width: 20%
+      padding: .5em
+      border: 1px solid $c3
+      border-radius: 4px
+      margin-right: 1em
+.space-dato-experiencia3__a
+  justify-content: space-between
+  margin-bottom: .5em
+  .aaajj2__a
+    width: 80%
+    display: flex
+    justify-content: space-between
+    .espacio1__a
+      flex: 1
+      span
+        font-weight: bolder
+      select
+        width: 40%
+        padding: .5em
+        border-radius: 4px
+
+.lineee-otroo1__a
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-bottom: .5em
+  .opciones-ddsada1__a
+    display: flex
+    justify-content: space-between
+    width: 90%
+    .tiiipooopo1__a
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 50%
+      padding: 0 1em
+      label
+        margin-right: 1em
+      select
+        width: 70%
+        padding: .5em
+    .tiiipooopo2__a
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 100%
+      label
+        margin-right: 1em
+      input
+        width: 70%
+        padding: .5em
+        margin-right: 1em
+        border: 1px solid $c3
+        border-radius: 4px
+.agrgrre1__a
+  min-width: 30px
+.asdfg1__a
+  border: 1px solid $c5
+  color: $c5
+  background-color: white
+  border-radius: 4px
+.asdfg1__a:hover
+  background-color: $c5
+  color: white
+.el-check1__a
+  width: 5%
+  input
+    border: 1px solid $c3
+    border-radius: 4px
+.lineee-otroo2__a
+  display: flex
+  margin-bottom: .5em
+  .opciones-ddsada2__a
+    display: flex
+    margin-bottom: .5em
+    width: 100%
+    span
+      font-weight: bold
+      margin-right: 1em
+    .aajajjjjj2__a
+      display: flex
+      .tiiipooopo3__a
+        margin-right: 1em
+        label
+          margin-right: .5em
+        input
+          border: 1px solid $c3
+          border-radius: 4px
+  .opciones-ddsada3__a
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    span
+      font-weight: bold
+      margin-right: 1em
+      width: 20%
+    .aajajjjjj3__a
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 75%
+      margin-right: .5em
+      input
+        padding: .5em
+        flex: 1
+        margin: 0 .3em
+        border: 1px solid $c3
+        border-radius: 4px
+.space-bannerrrr1__a
+  img
+    width: 100%
+
+
+
+.paneeeel1__a
+  border: 1px solid rgb(227, 227, 227)
+  .head-panneeell1__a
+    background-color: $c8
+    display: flex
+    padding: .5em
+    border-bottom: 1px solid rgb(227, 227, 227)
+    justify-content: center
+    font-weight: bold
+    position: relative
+    .icooonnnns1__a
+      position: absolute
+      left: 10px
+      top: 5px
+      font-size: 1.3em
+      cursor: pointer
+      i
+  .head-panneeell2__a
+    background-color: $c8
+    display: flex
+    border-bottom: 1px solid rgb(227, 227, 227)
+    justify-content: space-between
+    align-items: center
+    font-weight: bold
+    position: relative
+    .lefttt1__a
+      padding-left: .5em
+      i
+        margin: 0 .5em
+        font-size: 1.3em
+    .right1__a
+      button
+        padding: .5em
+        border: none
+        background-color: transparent
+        color: $c1
+  .bdddy-panel1__a
+    padding: .5em
+    min-height: 150px
+    .list-panel__a
+      text-align: center
+    .spaccc-selssscct1__a
+      display: flex
+      input
+        margin-right: .5em
+      label
+      p
+        margin: 0
+      .texxxt-difff1__a
+    .spaceeee-notaa1__a
+      font-weight: bold
+      font-size: .9em
+      display: flex
+      justify-content: center
+    .space-botoooott-panel-moddff1__a
+      display: flex
+      justify-content: flex-end
+      button
+        border: 1px solid $c5
+        background-color: white
+        color: $c5
+      button:hover
+        background-color: $c5
+        color: white
+    .bussscqueddd1__a
+      display: flex
+      justify-content: space-between
+      padding: .5em
+      .caracacttt-busqueddd__a
+        display: flex
+        align-items: center
+        text-align: center
+        a
+          display: flex
+          font-size: .9em
+          color: $c6
+        span
+          margin: 0 .3em
+      .btnnns-acciones-busqueda__a
+        display: flex
+        button
+          padding: .3em
+          font-size: .8em
+          width: 70px
+          margin-left: .3em
+          border: 1px solid $c5
+          color: $c5
+          border-radius: 4px
+          background-color: white
+        button:hover
+          background-color: $c5
+          color: white
+    .space-oferttta1__a
+      display: flex
+      .space-phooohtt1__a
+        width: 80px
+        border: 2px solid $c6
+        margin-right: 1em
+      .datos-emprrrsss-oferttt__a
+        li
+.busqueda-avanzada__a
+  padding: 1em 0
+  display: none
+  .dddeeeffff1__a
+    font-weight: bold
+  select
+    width: 100%
+    padding: .5em
+    border: 1px solid $c5
+    border-radius: 4px
+  .opcionnnnes-busssc-advaaac__a
+    margin-bottom: .5em
+    .opcionnnsss1-job__a
+      display: flex
+      .optioness-buscqueue-advvced1__a
+        margin-right: 2em
+        input
+        label
+    .spacccc-butttnss-buss-advvvc__a
+      display: flex
+      justify-content: flex-end
+      button
+        padding: .5em
+        border: 1px solid $c5
+        border-radius: 4px
+        color: $c5
+        background-color: white
+        margin-left: 1em
+      button:hover
+        color: white
+        background-color: $c5
+.space-menuuu-perfilll1__a
+  padding: 1em
+  box-sizing: border-box
+  border: 1px solid $c3
+  border-radius: 4px
+  margin-bottom: 1em
+  .opciones-mennnu-perfl__a
+    display: flex
+    flex-direction: column
+    p
+      font-weight: bold
+    a
+      margin-bottom: .5em
+      padding: .5em
+      color: $c5
+      position: relative
+      border-radius: 4px
+      span
+        position: absolute
+        right: -8px
+        top: 8px
+        background-color: red
+        color: white
+        border-radius: 50%
+        width: 20px
+        height: 20px
+        display: flex
+        justify-content: center
+        align-items: center
+    a:hover
+      background-color: $c5
+      color: white
+    .active
+      background-color: $c5
+      color: white
+.resultadsss1__a
+  h3
+    text-align: center
+  .sssspac-categgg-buscc__a
+    display: flex
+    justify-content: space-between
+    margin-bottom: 1em
+    .catttg-busccc__a
+      font-weight: bold
+      span
+        color: red
+
+.orderrrr-busccc__a
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border-bottom: 1px solid rgb(227, 227, 227)
+  padding: .5em
+  .opocccdss1__a
+    font-size: .9em
+    display: flex
+    align-items: center
+    color: $c3
+    cursor: pointer
+    i
+      margin-left: .5em
+  .opocccdss1__a:hover
+    color: $c1
+
+.line-resulttt__a
+  display: flex
+  justify-content: space-between
+  padding: .5em
+  box-sizing: border-box
+  border-bottom: 1px solid $c3
+  .spacccc-leftttt1__a
+    display: flex
+    align-items: center
+    .space-fottts1__a
+      width: 80px
+      height: 100px
+      border: 2px solid $c6
+      margin-right: 1em
+    .dattts-resssulttt1__a
+      color: $c4
+      h3
+        margin-top: 0
+  .spacccc-rigggthth1__a
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-end
+    .datttts1__a
+      font-size: .9em
+    .congruencccia1__a
+      font-weight: bold
+
+.spacee-paginadddrrr
+  display: flex
+  justify-content: center
+  // padding: .5em
+  border-top: 1px solid $c3
+  a
+    padding: .5em
+    color: $c5
+  a:hover
+    background-color: $c5
+    color: white
+
+.space-datos-cargo1__a
+  padding: 1em
+  box-sizing: border-box
+  .line-carggg1__a
+    font-weight: bolder
+    span
+      font-weight: normal
+    select
+      font-weight: normal
+  .contttt-diffff1__a
+    color: red
+.space-datos-cargo2__a
+  padding: 1em
+  box-sizing: border-box
+  .questtt1__a
+    width: 100%
+    margin-bottom: .5em
+    padding: .5em 0
+    border-bottom: 1px solid $c3
+    label
+      width: 100%
+    input
+      width: 100%
+      padding: .5em
+      border: 1px solid $c3
+      border-radius: 4px
+.spaceee-btnss-postullaccc1__a
+  padding: 1em
+  box-sizing: border-box
+  display: flex
+  justify-content: space-between
+  button
+    border: 1px solid $c5
+    border-radius: 4px
+    color: $c5
+    background-color: white
+    padding: .5em
+  button:hover
+    background-color: $c5
+    color: white
+
+.space-ventanaaa1__a
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 50
+  width: 100%
+  height: 100%
+  display: none
+  .bg-ventanaaaa-black1__a
+    background-color: rgba(0, 0, 0, 0.79)
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    .ventana-white1__a
+      background-color: white
+      width: 40%
+      border-radius: 4px
+      padding: 1em
+      box-sizing: border-box
+      position: relative
+      text-align: center
+      .buttt-close1__a
+        position: absolute
+        right: -30px
+        top: -30px
+        color: white
+        border: 2px solid white
+        border-radius: 50%
+        width: 30px
+        height: 30px
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        i
+      h3
+        color: $c5
+      .spaccc-croommm1__a
+        span
+          color: red
+          font-weight: bold
+      h4
+          font-weight: bold
+
+      h5
+      .space-btttnss-ventana1__a
+        display: flex
+        justify-content: space-between
+        button
+          border-radius: 4px
+          padding: .5em
+          color: white
+        .activar-cuenta1__a
+          border: 1px solid $c5
+          background-color: $c5
+        .activar-cuenta1__a:hover
+          background-color:darken($c5, 15%)
+        .cancelarrr-cuenta1__a
+          border: 1px solid $c1
+          background-color: $c1
+        .cancelarrr-cuenta1__a:hover
+          background-color:darken($c1, 15%)
+.listtt-benefff-premium1__a
+  margin: 2em 0
+  li
+    list-style: circle
+    margin-left: 2em
+    font-weight: bold
+.space-btnn-activv1__a
+  display: flex
+  justify-content: center
+  align-items: center
+  button
+    padding: .5em
+    border: 1px solid $c5
+    border-radius: 4px
+    background-color: white
+    color: $c5
+  button:hover
+    background-color: $c5
+    color: white
+.first-viewww-contrasssn__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-top: 1em
+  button
+    padding: .5em
+    border: 1px solid $c5
+    border-radius: 4px
+    background-color: white
+    color: $c5
+    margin-bottom: 1em
+  button:hover
+    background-color: $c5
+    color: white
+
+.linde-contrrrr-new__a
+  display: flex
+  justify-content: space-between
+  margin-bottom: .5em
+  input
+    width: 50%
+    padding: .5em
+    border-radius: 4px
+    border: 1px solid $c3
+
+.campo-config-cuenta1__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 1em
+  p
+    width: 100%
+    text-align: left
+    font-weight: bold
+  input
+    padding: .5em
+    border: 1px solid $c3
+    border-radius: 4px
+    margin-bottom: .5em
+    width: 300px
+  button
+    border: 1px solid $c5
+    color: $c5
+    background-color: white
+    padding: .5em
+    border-radius: 4px
+  button:hover
+    color: white
+    background-color: $c5
+
+.campo-config-cuenta2__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-bottom: 1em
+  p
+    width: 100%
+    text-align: left
+    font-weight: bold
+  .spaceee-inpuses1__a
+    display: flex
+    justify-content: space-between
+    width: 300px
+    .opcionnnn1__a
+      display: flex
+      label
+        margin-right: .5em
+      input
+  button
+    border: 1px solid $c5
+    color: $c5
+    background-color: white
+    padding: .5em
+    border-radius: 4px
+  button:hover
+    color: white
+    background-color: $c5
+
+.line-paggggo1__a
+  display: flex
+  justify-content: space-between
+  align-items: center
+  font-size: 1.3em
+  width: 40%
+  margin: 0 auto
+  margin-bottom: 1em
+  input
+  .box-timeee1__a
+    width: 100px
+    border: 2px solid $c6
+    padding: .5em
+    display: flex
+    justify-content: center
+    align-items: center
+  .box-dolllr1__a
+    width: 120px
+    border: 2px solid $c6
+    padding: .5em
+    display: flex
+    justify-content: center
+    align-items: center
+.space-seleccc-paggg-tarj__a
+  display: flex
+  justify-content: space-between
+  width: 40%
+  margin: 0 auto
+  margin-bottom: 1em
+  button
+    border: 1px solid $c5
+    color: $c5
+    background-color: white
+    padding: .5em
+    border-radius: 4px
+  button:hover
+    color: white
+    background-color: $c5
+.spac-btttn-paggar1__a
+  display: flex
+  justify-content: center
+  button
+    border: 1px solid $c5
+    color: white
+    background-color: $c5
+    padding: .5em 1em
+    border-radius: 4px
+  button:hover
+    color: $c5
+    background-color: white
+.barrr1__a
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  padding: .5em
+  background-color: rgb(238, 238, 238)
+  border-bottom: 1px solid $c3
+  font-weight: bolder
+.connntent-barrr1__a
+  padding: .5em
+  box-sizing: border-box
+  h4
+    display: flex
+    justify-content: center
+    text-align: center
+    span
+      font-weight: bold
+      margin-right: .5em
+      color: $c5
+.tipo-cuenta1__a
+  display: flex
+  justify-content: space-between
+  button
+    border: 1px solid $c5
+    color: white
+    background-color: $c5
+    padding: .5em 1em
+    border-radius: 4px
+  button:hover
+    color: $c5
+    background-color: white
+.defff-perdddonnss1__a
+  display: flex
+  .spaccc-deff-usss__a
+    display: flex
+    flex-direction: column
+    align-items: center
+    .box-defff-uss__a
+      width: 100px
+      height: 120px
+      margin: 0 .5em
+      border: 2px solid $c6
+      display: flex
+      justify-content: center
+      align-items: center
+      text-align: center
+      color: $c6
+    a
+.infff-quiencv2__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  h5
+    font-weight: bolder
+  button
+    border: 1px solid $c5
+    color: white
+    background-color: $c5
+    padding: .5em 1em
+    border-radius: 4px
+  button:hover
+    color: $c5
+    background-color: white
+
+.top-accion-tu-cv__a
+  display: flex
+  justify-content: center
+  span
+    font-weight: bold
+    display: flex
+    margin-right: .5em
+  .fecha-timee
+    color: $c4
+  .difff-acction
+    color: $c6
+
+.boxes-infff-prrrrosppp1__a
+  .space-boxxes
+    border: 1px solid #ccc
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 1em
+    a
+      font-size: .8em
+    p
+      font-weight: bold
+.box-textoo
+  border: 1px solid #ccc
+  width: 90px
+  height: 120px
+  font-size: .7em
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  text-align: center
+  overflow: hidden
+  span
+
+.space-tu-perfff
+  padding: .5em
+  border-bottom: 1px solid $c3
+  i
+    margin-right: .5em
+  span
+    font-weight: bold
+    margin: 0 .5em
+.space-connt-grafff
+  display: flex
+  justify-content: center
+.top-postulacionnn
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 1.1em
+  text-transform: uppercase
+  font-weight: bold
+  border-bottom: 2px solid $c3
+  margin-top: 1em
+  padding: .5em 0
+  margin-bottom: 1em
+
+.indicesss-compppteccas
+  color: $c2
+  display: flex
+  justify-content: center
+
+.bdddy-panel1__a
+  h3
+    text-align: center
+
+.modal-body
+  h4
+    text-align: center
+  form
+    display: flex
+    flex-direction: column
+    align-items: center
+    input
+      width: 70%
+.space-btnnns-form-ventt
+  width: 100%
+  display: flex
+  justify-content: space-between
+  button
+
+.top-inf-generalll
+  background-color: $c12
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: .5em
+  border-radius: 4px
+  margin-bottom: 1em
+  .innnfff-ggg
+    font-weight: bold
+  button
+    padding: .3em 1.5em
+.space-princccc
+  display: flex
+  flex-direction: column
+  .listttt1__a, .listttt2__a
+    display: flex
+    margin-bottom: .5em
+
+    .box-campo1
+      .space-fototooto
+        display: flex
+        margin-bottom: .5em
+        span
+          font-weight: bold
+      .spac-btn
+        input
+    .box-campo1
+      .spac-btn
+        input
+  .listttt2__a
+    flex-direction: column
+    h5
+      font-weight: bold
+      margin: .5em 0
+      text-align: center
+      border-bottom: 1px solid $c5
+      padding: .5em 0
+      margin-bottom: .5em
+
+    .space-datppps
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+      .dato-usuarrriii__a
+        margin-bottom: 1em
+        display: flex
+        flex-direction: column
+        span
+
+.space-mensajes-sss
+.line-mensajeees
+  display: flex
+  flex-direction: column
+  margin-bottom: 1.5em
+  label
+  input, textarea
+    padding: .5em
+    border: 1px solid $c2
+    border-radius: 4px
+    width: 100%
+.remitenteeees
+  position: relative
+  button
+    position: absolute
+    top: 52%
+    left: 10px
+    border: transparent
+    background-color: white
+    font-size: 1.1em
+  input
+    padding-left: 2.5em
+.space-btns-mensajess
+  display: flex
+  justify-content: flex-end
+  button
+    margin-left: .5em
+.volvereerrr
+  border: 1px solid $c1
+  background-color: transparent
+.volvereerrr:hover
+  background-color: $c1
+  color: white
+.enviarrrr
+  border: 1px solid $c5
+  background-color: transparent
+.enviarrrr:hover
+  background-color: $c5
+  color: white
+
+.space-contactossss
+  display: flex
+  flex-direction: column
+  min-height: 250px
+  max-height: 500px
+  overflow: scroll
+  overflow-x: none
+  .remitente1
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    padding: .5em
+    border-bottom: 1px solid $c1
+    input
+      margin-right: 1em
+    .box-textoo
+      margin-right: 1em
+    .listado-datos-remitente
+      display: flex
+      flex-direction: column
+      li
+.modal-footer
+  span
+    margin-right: 1em
+    a
+      color: $c5
+
+.space-compatibilidad
+  border-bottom: 1px solid $c1
+  padding: .5em 0
+  .box-ccommmm
+    span
+  .tiiippp1__a
+    font-size: .8em
+    i
+      margin-right: .5em
+  .tiiippp2__a, .tiiippp3__a
+    display: flex
+    justify-content: center
+    font-size: .8em
+  .tiiippp3__a
+    color: $c4
+.tipe-top
+  font-weight: bold
+  font-size: .9em
+  border-bottom: 1px solid $c3
+  padding: .5em 0
+
+.box-datooo-aviso
+  display: flex
+  align-items: center
+  position: relative
+  .vistooo
+    position: absolute
+    left: -20%
+    top: 40%
+    font-size: 1.5em
+    color: $c5
+  .box-textoo2
+    width: 40px
+    height: 50px
+    border: 1px solid $c3
+    margin-right: .5em
+  .listado-caracttt-aviso
+
+.linnn-for-responssv
+  display: none
+
+.space-adicional1__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+  span
+    margin-bottom: 1em
+  .space-checccksss
+    display: flex
+    justify-content: space-between
+    width: 50%
+    margin: 0 auto
+    .space-checccck
+      display: flex
+      align-items: center
+      label, input
+        margin: 0
+        padding: 0
+      label
+        margin-left: .3em
+
+.space-ver-mas-annnns
+  display: flex
+  justify-content: flex-end
+  padding: .5em 0
+  button
+    border: 1px solid $c5
+    color: $c5
+    background-color: white
+  button:hover
+    color: white
+    background-color: $c5
+
+
+.space-detalll-posttt
+  border: 1px solid $c3
+  padding: .5em
+  box-sizing: border-box
+  min-height: 150px
+  display: flex
+  flex-direction: column
+  align-items: center
+  a
+    color: $c4
+
+.ajjjj1__a
+  width: 100%
+  padding: .5em
+  border-radius: 4px
+  border: 1px solid $c2
+  margin-bottom: .5em
+
+
+.space-butn-modificccr
+  display: flex
+  justify-content: flex-end
+  margin-bottom: .5em
+  a
+    border: 1px solid $c5
+    color: $c5
+  a:hover
+    background-color: $c5
+    color: white
+
+.space-btns-mensajess__a
+  display: flex
+  justify-content: space-between
+  button
+    border: 1px solid $c5
+    background-color: white
+    color: $c5
+  button:hover
+    background-color: $c5
+    color: white
+.line-contacccto
+  display: flex
+  justify-content: space-between
+  label
+  input, select
+    width: 70%
+    padding: .5em
+    border-radius: 4px
+    border: 1px solid $c2
+    margin-bottom: .5em
+
+.publll-emprennndd
+  h5
+    text-decoration: underline
+    text-align: center
+    font-weight: bold
+  p
+    text-align: center
+.space-butttn-saber-mas
+  display: flex
+  justify-content: center
+  align-items: center
+  button
+    border: 1px solid $c5
+    background-color: white
+    color: $c5
+  button:hover
+    background-color: $c5
+    color: white
+.listado-pasosoossss
+  display: flex
+  flex-direction: column
+  align-items: center
+  li
+    list-style: decimal
+    margin-bottom: 1.5em
+    text-align: center
+
+.campo1__a
+  .top-datosbddyd
+    font-weight: bold
+    padding: .5em
+    display: flex
+    background-color: $c3
+    border-radius: 4px 4px 0 0
+    color: white
+  textarea
+    width: 100%
+    margin-bottom: .5em
+  .space-editor-textooo
+
+  .espacio-inpuuus
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1em
+    input
+    button
+      color: $c5
+      background-color: white
+      border: 1px solid $c5
+    button:hover
+      color: white
+      background-color: $c5
+  .space-descccc-massv
+    padding: 1em
+    .line-cammmmn
+      input
+      label
+    .lineee-mas-datooos, .lineee-mas-datooos2
+      display: flex
+      margin-bottom: .5em
+      span
+      .lllinnn
+        .sssss-difff
+          margin: 0 .3em 0 .3em !important
+        input
+          margin-left: 2em
+        label
+          margin-left: 1em
+
+    .lineee-mas-datooos
+      justify-content: flex-end
+      select
+        width: 90px
+    .lineee-mas-datooos2
+      justify-content: space-between
+      select
+        width: 250px
+    .linea-datosoooosss
+      margin-bottom: 1em
+      display: flex
+      align-items: center
+      label
+        width: 20%
+      input
+        width: 80%
+        padding: .5em
+        border-radius: 4px
+        border: 1px solid $c3
+.space-butttnsss-diferentesss1__a
+  display: flex
+  justify-content: center
+  margin-bottom: 1em
+  button
+    margin: 0 1.5em
+    border: 1px solid $c5
+    color: $c5
+    background-color: white
+  button:hover
+    color: white
+    background-color: $c5
+.campo2__a
+  display: flex
+  flex-direction: column
+  align-items: center
+  button
+    margin-bottom: 1em
+
+.silumarrrr
+  background-color: white
+  border: 1px solid $c5
+  color: $c5
+.silumarrrr:hover
+  background-color: $c5
+  color: white
+.ver-planilllla
+  background-color: white
+  color: $c3
+  border: 1px solid $c3
+.ver-planilllla:hover
+  background-color: $c3
+  color: white
+
+.tiiittt-tabbbll-tiip
+  width: 100px
+  font-weight: bold
+.space-top-tabllle-costos
+  font-weight: bold
+  border-bottom: 1px solid $c2
+.space-tabllle-costos
+  border-bottom: 1px solid $c3
+  padding: .5em 0
+
+.space-top-tabllle-costos, .space-tabllle-costos
+  display: flex
+  align-items: center
+  font-size: .7em
+  .ceeell
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    flex: 1
+    text-align: center
+    .box-costtt
+      font-size: 1.1em
+      font-weight: bold
+    .caaaalccc
+      color: $c3
+.ceeell
+  position: relative
+  .caaaannnttttt-time
+    position: absolute
+    left: 0
+    top: 0
+
+.space-top-imggg
+  display: flex
+  flex-direction: column
+  border-bottom: 1px solid $c3
+  margin-bottom: 1em
+  .box-img-subida
+    width: 100%
+    height: 100px
+    border: 1px solid $c3
+    margin-bottom: .5em
+  .space-texto-escrrttt
+    width: 100%
+    text-align: justify
+    margin-bottom: .5em
+.space-dattts-contacccc
+  display: flex
+  flex-direction: column
+  margin-bottom: 1em
+  .cellllc
+    width: 100%
+.especcciffff
+  display: flex
+  flex-wrap: wrap
+  h4
+    width: 100%
+  li
+    margin-right: 2em
+    span
+  .spaaacccc-durararfff
+    display: flex
+    flex-direction: column
+    width: 100%
+    .duarcccccc
+      display: flex
+      justify-content: space-between
+      margin-bottom: 1em
+      select
+        width: 50%
+        padding: .5em
+        border-radius: 4px
+        border: 1px solid $c3
+      button
+        border: 1px solid $c5
+        color: $c5
+        background-color: white
+      button:hover
+        color: white
+        background-color: $c5
+.spaceee-valor-publllccs
+  display: flex
+  justify-content: space-between
+  width: 100%
+  margin-bottom: 1em
+  .space-cosssttttooo
+    span
+      font-weight: bold
+.space-butttnsss-diferentesss1__a
+  width: 100%auto
+.box-tramite-pendiente
+  padding: .5em
+  display: flex
+  flex-direction: column
+  align-items: center
+  border: 1px solid $c6
+  button
+    border: 1px solid $c5
+    color: $c5
+    background-color: white
+.box-espacio-textttt
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: justify
+  padding: .5em
+  a
+    border: 1px solid $c5
+    color: $c5
+    background-color: white
+.space-para-graficos
+  display: flex
+  justify-content: center
+  align-items: center
+
+
+//--------------------responsive------------------------//
+
+@import "_respo"

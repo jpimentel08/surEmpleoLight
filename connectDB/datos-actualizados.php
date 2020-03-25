@@ -13,8 +13,13 @@ $last_name=$_POST['last_name'];
     <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen" title="no title">
     <link rel="stylesheet" href="../css/bootstrap-theme.min.css" media="screen" title="no title">
     <link rel="stylesheet" href="../css/style.css" media="screen" title="no title">
+    <script language="JavaScript">
+  function redireccionar() {
+    setTimeout("location.href='../post-30a.php'", 1000);
+  }
+  </script>
   </head>
-  <body>
+  <body onload="redireccionar()">
     <main>
       <!-- header portada -->
       <?php include "../include/header-postulante-act.php" ?>       
@@ -33,9 +38,9 @@ $last_name=$_POST['last_name'];
                   <h4 class="title-registro">Sus Datos fueron actualizados exitosamente.</h4>
                 </div>
                 
-                <div class="coll-logear">
+                <!-- <div class="coll-logear">
                   <a href="../post-30a.php"><button type="button" name="button" class="button-ap">VOLVER</button></a>
-                </div>
+                </div> -->
               </form>
             </div>
           </div>

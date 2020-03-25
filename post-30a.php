@@ -41,23 +41,30 @@ session_start();
   $databaseH = "sur8emp9_db_sur_empleo";
   $usernameH = "sur8emp9_adminDB";
 $passwordH = "3M-zHFu,%0Cb";
+  
+   	/*Conexion Hosting*/
+     $servernameH = "localhost";
+     $databaseH = "sur8emp9_db_sur_empleo";
+     $usernameH = "sur8emp9_adminDB";
+   $passwordH = "3M-zHFu,%0Cb";
+   
+   /*Conexion Local Ruben*/
+     $servernameRP = "localhost";
+     $databaseRP = "sur8emp9_db_sur_empleo";
+     $usernameRP = "root";
+     $passwordRP = "";
+   
+   /*Conexion Local*/
+   $servernameJP = "localhost";
+   $databaseJP = "sur8emp9_db_sur_empleo";
+   $usernameJP = "jpimentel";
+   $passwordJP = "1234qwas";
+ 
+   // Create connection
+   //$conn = mysqli_connect($servernameH, $usernameH, $passwordH, $databaseH); //conexion Hosting
+   $conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
+   //$conn = mysqli_connect($servernameJP, $usernameJP, $passworJP, $databaseJP); //conexion Jose
 
-/*Conexion Local Ruben*/
-  $servernameRP = "localhost";
-  $databaseRP = "sur8emp9_db_sur_empleo";
-  $usernameRP = "root";
-  $passwordRP = "";
-
-/*Conexion Local*/
-$servernameJP = "localhost";
-$databaseJP = "sur8emp9_db_sur_empleo";
-$usernameJP = "jpimentel";
-$passwordJP = "1234qwas";
-
-// Create connection
-//$conn = mysqli_connect($servernameH, $usernameH, $passwordH, $databaseH); //conexion Hosting
-//$conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
-$conn = mysqli_connect($servernameJP, $usernameJP, $passwordJP, $databaseJP); //conexion Jose
 
   // Check connection
   if (!$conn) {
@@ -582,8 +589,31 @@ $conn = mysqli_connect($servernameJP, $usernameJP, $passwordJP, $databaseJP); //
                   <span style="margin: auto;"> </span>  
                   <label>Sexo*:</label>
                   <div class="for-sex">
-                    <input type="radio" id="gender" name="gender" value="<?php echo $gender ?>" required><label>M </label>
-                    <input type="radio" id="gender" name="gender" value="<?php echo $gender ?>"><label>F </label>
+                    <input type="radio" id="genderMasculino" name="gender" value="Masculino" onchange='changeGenderMale()'><label>M </label>
+                    <input type="radio" id="genderFemenino" name="gender" value="Femenino" onchange='changeGenderFemale()'><label>F </label>
+
+                    <!------- Script para verificar cambios en radio de genero ------->
+                    <script>         
+                      const generoVar = "<?php echo $gender ?>"
+                      const radioFemale = document.getElementById("genderFemenino");
+                      const radioMale = document.getElementById("genderMasculino");
+                      if(generoVar === 'Masculino'){
+                        radioMale.setAttribute('checked', '');
+                        radioFemale.removeAttribute('checked');
+                      }else if(generoVar === 'Femenino'){
+                        radioFemale.setAttribute('checked', '');
+                        radioMale.removeAttribute('checked');
+                      }
+                      function changeGenderMale(){
+                        radioMale.setAttribute('checked', '');
+                        radioFemale.removeAttribute('checked');
+                      }
+                      function changeGenderFemale(){
+                        radioFemale.setAttribute('checked', '');
+                        radioMale.removeAttribute('checked');
+                      }
+                    </script>
+
                   </div>
                 </div>
               </div>  

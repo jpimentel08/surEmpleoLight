@@ -4,13 +4,13 @@
   $servernameH = "localhost";
   $databaseH = "sur8emp9_db_sur_empleo";
   $usernameH = "sur8emp9_adminDB";
-$passwordH = "3M-zHFu,%0Cb";*/
+$passwordH = "3M-zHFu,%0Cb";
 
 /*Conexion Local Ruben*/
   $servernameRP = "localhost";
   $databaseRP = "sur8emp9_db_sur_empleo";
   $usernameRP = "root";
-  $passwordRP = "";*/
+  $passwordRP = "";
 
 /*Conexion Local*/
 $servernameJP = "localhost";
@@ -20,8 +20,8 @@ $passwordJP = "1234qwas";
 
 // Create connection
 //$conn = mysqli_connect($servernameH, $usernameH, $passwordH, $databaseH); //conexion Hosting
-$conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
-//$conn = mysqli_connect($servernameJP, $usernameJP, $passworJP, $databaseJP); //conexion Jose
+//$conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
+$conn = mysqli_connect($servernameJP, $usernameJP, $passwordJP, $databaseJP); //conexion Jose
 
   // Check connection
   if (!$conn) {
@@ -30,15 +30,15 @@ $conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //
 	
 	//require ('../conexion.php');
 	
-	$id_estado = $_POST['id_estado'];
+	$id_estado2 = $_POST['id_estado2'];
 
 	//Busqueda datos region
-  $result = mysqli_query($conn, "SELECT se_comuna_id, se_comuna, se_region_id FROM se_comuna WHERE se_region_id = '$id_estado' ORDER BY se_comuna_id");
+  $result2 = mysqli_query($conn, "SELECT se_comuna_id, se_comuna, se_region_id FROM se_comuna WHERE se_region_id = '$id_estado2' ORDER BY se_comuna_id");
 
   $html = "<option value='0'>Seleccionar Comuna</option>";
   
-  while($row = mysqli_fetch_assoc($result)) {
-		$html .= "<option value='".$row['se_comuna_id']."'>".$row['se_comuna']."</option>";
+  while($row2 = mysqli_fetch_assoc($result2)) {
+		$html .= "<option value='".$row2['se_comuna_id']."'>".$row2['se_comuna']."</option>";
 	};
 	
 	echo $html;

@@ -36,7 +36,12 @@ session_start();
       } ?>
 <!--conexion BD-->
 <?php
-
+	/*Conexion Hosting*/
+  $servernameH = "localhost";
+  $databaseH = "sur8emp9_db_sur_empleo";
+  $usernameH = "sur8emp9_adminDB";
+$passwordH = "3M-zHFu,%0Cb";
+  
    	/*Conexion Hosting*/
      $servernameH = "localhost";
      $databaseH = "sur8emp9_db_sur_empleo";
@@ -60,11 +65,12 @@ session_start();
    $conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
    //$conn = mysqli_connect($servernameJP, $usernameJP, $passworJP, $databaseJP); //conexion Jose
 
+
   // Check connection
   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
-      
+   	
   // data sent from form login.html 
   $email = $_SESSION['email']; 
 
@@ -222,10 +228,21 @@ session_start();
 
   while($row11 = mysqli_fetch_array($result11)){
     $id = $row11['se_user_id'];
-    $busqueda_region1 = $row11['se_region'];
-    $busqueda_ciudad1 = $row11['se_ciudad'];
-    $busqueda_comuna1 = $row11['se_comuna'];           
+    $busqueda_region = $row11['se_region'];
+    $busqueda_ciudad = $row11['se_ciudad'];
+    $busqueda_comuna = $row11['se_comuna'];           
   }
+
+  //busqueda datos resultado direccion secundaria
+  /*$result12 = mysqli_query($conn, "SELECT se_personal_data.se_personal_data_region2, se_personal_data.se_personal_data_city2, se_personal_data.se_personal_data_comuna2, se_region.se_region_id, se_region.se_region, se_ciudad.se_ciudad_id, se_ciudad.se_ciudad, se_comuna.se_comuna_id, se_comuna.se_comuna FROM se_personal_data, se_region, se_ciudad, se_comuna WHERE se_personal_data.se_personal_data_region2 = se_region.se_region_id && se_personal_data.se_personal_data_city2 = se_ciudad.se_ciudad_id && se_personal_data.se_personal_data_comuna2 = se_comuna.se_comuna_id && se_user_id='$id'");
+
+  while($row12 = mysqli_fetch_array($result12)){
+    $id = $row12['se_user_id'];
+    $busqueda_region1 = $row12['se_region'];
+    $busqueda_ciudad1 = $row12['se_ciudad'];
+    $busqueda_comuna1 = $row12['se_comuna'];           
+  }*/
+
   
    //Busqueda informacion referencias
   $resultref3 = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
@@ -440,59 +457,77 @@ session_start();
       <script type="text/javascript" src="js/jmio.js"></script>
 
       <script language="javascript">
+
         //funcion direccion 1 
-        $(document).ready(function(){
-          $("#cbx_estado").change(function () {
-
-            $('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-          
-              $("#cbx_estado option:selected").each(function () {
-                id_estado = $(this).val();
-                $.post("include/getMunicipio.php", { id_estado: id_estado }, function(data){
-                  $("#cbx_municipio").html(data);
-                });            
-              });
-          })
-        });
+        $(document)
+          .ready(function(){
+            $("#cbx_estado")
+              .change(function(){
+                $('#cbx_localidad')
+                  .find('option')
+                  .remove()
+                  .end()
+                  .append('<option value="whatever"></option>')
+                  .val('whatever');
+                $("#cbx_estado option:selected")
+                  .each(function(){
+                    id_estado = $(this).val();
+                    $.post("include/getMunicipio.php", { id_estado: id_estado }, function(data){
+                      $("#cbx_municipio").html(data);
+                    });            
+                  });
+              })
+          });
       
-        $(document).ready(function(){
-          $("#cbx_municipio").change(function () {
-            $("#cbx_municipio option:selected").each(function () {
-              id_municipio = $(this).val();
-              $.post("include/getLocalidad.php", { id_municipio: id_municipio }, function(data){
-                $("#cbx_localidad").html(data);
-              });            
-            });
-          })
-        });
+        $(document)
+          .ready(function(){
+            $("#cbx_municipio")
+              .change(function () {
+                $("#cbx_municipio option:selected")
+                .each(function () {
+                  id_municipio = $(this).val();
+                  $.post("include/getLocalidad.php", { id_municipio: id_municipio }, function(data){
+                    $("#cbx_localidad").html(data);
+                  });            
+                });
+              })
+          });
 
-        //funcion direccion 2 
-        $(document).ready(function(){
-          $("#cbx_estado2").change(function () {
-
-            $('#cbx_localidad2').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-          
-              $("#cbx_estado2 option:selected").each(function () {
-                id_estado = $(this).val();
-                $.post("include/getMunicipio2.php", { id_estado: id_estado }, function(data){
-                  $("#cbx_municipio2").html(data);
-                });            
-              });
-          })
-        });
+        //funcion direccion 2
+        $(document)
+          .ready(function(){
+            $("#cbx_estado2")
+              .change(function(){
+                $('#cbx_localidad2')
+                  .find('option')
+                  .remove()
+                  .end()
+                  .append('<option value="whatever"></option>')
+                  .val('whatever');
+                $("#cbx_estado2 option:selected")
+                  .each(function(){
+                    id_estado2 = $(this).val();
+                    $.post("include/getMunicipio2.php", { id_estado2: id_estado2 }, function(data){
+                      $("#cbx_municipio2").html(data);
+                    });            
+                  });
+              })
+          });
       
-        $(document).ready(function(){
-          $("#cbx_municipio2").change(function () {
-            $("#cbx_municipio2 option:selected").each(function () {
-              id_municipio = $(this).val();
-              $.post("include/getLocalidad2.php", { id_municipio: id_municipio }, function(data){
-                $("#cbx_localidad2").html(data);
-              });            
-            });
-          })
-        });
+        $(document)
+          .ready(function(){
+            $("#cbx_municipio2")
+              .change(function () {
+                $("#cbx_municipio2 option:selected")
+                .each(function () {
+                  id_municipio2 = $(this).val();
+                  $.post("include/getLocalidad2.php", { id_municipio2: id_municipio2 }, function(data){
+                    $("#cbx_localidad2").html(data);
+                  });            
+                });
+              })
+          });
       </script>
-
 </section>
 </body>
 
@@ -969,7 +1004,7 @@ session_start();
             <div class="ssspccc-inpusssess1__a pasos-reg">
               <div class="inpppputt1__a">
                 <label>Estado Civil *: </label>
-                <input type="text" id="state_civil" name="state_civil" value="" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" title="Solo se permiten letras." required>
+                <input type="text" id="state_civil" name="state_civil" value="<?php echo $civil_status ?>" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" title="Solo se permiten letras." required>
               </div>
             </div>
           </div>
@@ -977,16 +1012,18 @@ session_start();
             <div class="ssspccc-inpusssess1__a pasos-reg">
               <div class="inpppputt1__a">
                 <label>Nacionalidad *: </label>
-                <input type="text" id="nationality" name="nationality" value="" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" title="Solo se permiten letras." placeholder="Ejm: Chilena" required>
+                <input type="text" id="nationality" name="nationality" value="<?php echo $nation_birth ?>" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" title="Solo se permiten letras." placeholder="Ejm: Chilena" required>
               </div>      
             </div>
           </div>
+          <!--Direccion 1-->
           <h4>Dirección :</h4>
           <div class="col-md-6">
             <div class="ssspccc-inpusssess1__a pasos-reg">
               <div class="inpppputt1__a">
                 <label>Región *: </label>
                 <select name="cbx_estado" id="cbx_estado" style="width: 60%;">
+                <option value="<?php echo $busqueda_region ?>"><?php echo $busqueda_region ?></option>
                   <option value="0">Seleccionar Region</option>
                   <?php while($row = mysqli_fetch_assoc($result9)) { ?>
                   <option value="<?php echo $row['se_region_id']; ?>"><?php echo $row['se_region']; ?></option>
@@ -996,6 +1033,7 @@ session_start();
               <div class="inpppputt1__a">
                 <label>Ciudad *: </label>
                 <select name="cbx_localidad" id="cbx_localidad" style="width: 60%;">
+                <option value="<?php echo $busqueda_ciudad ?>"><?php echo $busqueda_ciudad ?></option>
                   <option value="0">Seleccionar Ciudad</option>
                 </select>                
               </div>
@@ -1006,55 +1044,19 @@ session_start();
               <div class="inpppputt1__a">
                 <label>Comuna *:  </label>
                 <select name="cbx_municipio" id="cbx_municipio" style="width: 60%;">
+                <option value="<?php echo $busqueda_comuna; ?>"><?php echo $busqueda_comuna; ?></option>
                   <option value="0">Seleccionar Comuna</option>
                 </select>
               </div>
               <div class="inpppputt1__a">
                 <label>Dirección :  </label>
-                <input type="text" name="address" value="" placeholder="Avenida, Calle, Urbanización, Casa-Apto" style="width: 60%;" required>
+                <input type="text" name="address" value="<?php echo $add1 ?>" placeholder="Avenida, Calle, Urbanización, Casa-Apto" style="width: 60%;" required>
               </div>
             </div>
           </div>
-          <div class="clearfix"></div>   
-          <hr>           
-            <div>
-              <h4>Dirección2:</h4>
-              <div class="col-md-6">
-                <div class="ssspccc-inpusssess1__a">
-                  <div class="inpppputt1__a">
-                    <label>Región *: </label>
-                    <select name="cbx_estado2" id="cbx_estado2" style="width: 60%;">
-                      <option value="0">Seleccionar Region</option>
-                      <?php while($row = mysqli_fetch_assoc($result9)) { ?>
-                      <option value="<?php echo $row['se_region_id']; ?>"><?php echo $row['se_region']; ?></option>
-                      <?php } ?>
-                    </select>                   
-                  </div>
-                  <div class="inpppputt1__a">
-                    <label>Ciudad *: </label>
-                    <select name="cbx_localidad2" id="cbx_localidad2" style="width: 60%;">
-                  <option value="0">Seleccionar Ciudad</option>
-                </select>                      
-                  </div>
-                </div>
-              </div>    
-              <div class="col-md-6">
-                <div class="ssspccc-inpusssess1__a">
-                  <div class="inpppputt1__a">
-                    <label>Comuna *:  </label>
-                    <select name="cbx_municipio2" id="cbx_municipio2" style="width: 60%;">
-                      <option value="0">Seleccionar Comuna</option>
-                    </select>
-                  </div>
-                  <div class="inpppputt1__a">
-                    <label>Dirección :  </label>
-                    <input type="text" name="address2" value="" placeholder="Avenida, Calle, Urbanización, Casa-Apto" style="width: 60%;" required>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>   
-              <hr>
+          <!--Fin Direccion 1--> 
+          <div class="clearfix"></div>  
+          <hr>  
               <div class="col-md-12" style="text-align:right;">
                 <div class="ediciones-botones">
                   <a href="#" class="ediciones-btn">Agregar Otra Dirección</a> 

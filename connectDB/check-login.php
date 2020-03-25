@@ -16,6 +16,7 @@ session_start();
 	<body>
 		<div class="container">
 <?php
+
 	/*Conexion Hosting*/
     $servernameH = "localhost";
     $databaseH = "sur8emp9_db_sur_empleo";
@@ -38,11 +39,6 @@ session_start();
 	//$conn = mysqli_connect($servernameH, $usernameH, $passwordH, $databaseH); //conexion Hosting
 	$conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
 	//$conn = mysqli_connect($servernameJP, $usernameJP, $passworJP, $databaseJP); //conexion Jose
-
-	// Check connection
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
 		
 	// data sent from form login.html 
 	$email = $_POST['email']; 

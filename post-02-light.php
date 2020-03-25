@@ -36,7 +36,7 @@
                       <div class="row cont-cv color-f">
 
                         <!-- Inicio FORM -->
-                        <form method="post" action="connectDB/register-postulante.php">
+                        <form method="post" action="connectDB/register-postulante.php" enctype="multipart/form-data">
 
                           <!--Seccion Izquierda-->
                           <div class="col-md-6">

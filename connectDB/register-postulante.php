@@ -1,16 +1,15 @@
 <?php
-
 	/*Conexion Hosting*/
     $servernameH = "localhost";
     $databaseH = "sur8emp9_db_sur_empleo";
     $usernameH = "sur8emp9_adminDB";
-	$passwordH = "3M-zHFu,%0Cb";*/
+	$passwordH = "3M-zHFu,%0Cb";
 	
 	/*Conexion Local Ruben*/
     $servernameRP = "localhost";
     $databaseRP = "sur8emp9_db_sur_empleo";
     $usernameRP = "root";
-    $passwordRP = "";*/
+    $passwordRP = "";
 	
 	/*Conexion Local*/
 	$servernameJP = "localhost";
@@ -20,8 +19,8 @@
 
 	// Create connection
 	//$conn = mysqli_connect($servernameH, $usernameH, $passwordH, $databaseH); //conexion Hosting
-	$conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
-	//$conn = mysqli_connect($servernameJP, $usernameJP, $passworJP, $databaseJP); //conexion Jose
+	//$conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
+	$conn = mysqli_connect($servernameJP, $usernameJP, $passwordJP, $databaseJP); //conexion Jose
 
 if (!$conn) {
 
@@ -67,7 +66,10 @@ if (!$conn) {
 			$since_month=$_POST['since_month'];
 			$since_year=$_POST['since_year'];
 			$position_job=$_POST['position_job'];
-			$photo=$_POST['photo'];
+			$photoProfile=$_FILES['photo']['name'];
+			$archivoProfile=$_FILES['photo']['tmp_name'];
+			$pathProfile="img";
+			$pathProfile=$pathProfile."/".$photoProfile;
 			$cv=$_POST['cv'];
 			$pregunta1=$_POST['question1'];
 			$respuesta1=$_POST['answer1'];
@@ -75,11 +77,13 @@ if (!$conn) {
 			$respuesta2=$_POST['answer2'];
 			$no_info="No Info";
 
+			move_uploaded_file($archivoProfile,$pathProfile);
+
 			// The password_hash() function convert the password in a hash before send it to the database
 			$passHash = password_hash($pass, PASSWORD_DEFAULT);
 
 			//SQL user
-    		$sql_registro_user="INSERT INTO se_user VALUES ('$id_user','$name','$last_name','$nation','$rut','$visa','$perm_job','$email','$date_birth','$gender','$country_resid','$phone','$cell_phone','$actual_job','$company','$since_month','$since_year','$position_job','$photo','$cv')";
+    		$sql_registro_user="INSERT INTO se_user VALUES ('$id_user','$name','$last_name','$nation','$rut','$visa','$perm_job','$email','$date_birth','$gender','$country_resid','$phone','$cell_phone','$actual_job','$company','$since_month','$since_year','$position_job','$pathProfile','$cv')";
 
     		//SQL access
     		$sql_registro_access="INSERT INTO se_access VALUES ('$name','$email','$passHash','$pregunta1','$respuesta1','$pregunta2','$respuesta2','$type_user','$id_user')";

@@ -17,7 +17,7 @@ $last_name=$_POST['last_name'];
   <body>
     <main>
       <!-- header portada -->
-      <?php include "header-postulante-registro.php" ?>      
+      <?php include "../include/header-postulante-act.php" ?>       
       <section class="logear">
         <div class="container">
           <div class="cont-logear" style="width: 50%; margin: 0 auto; float: none;">

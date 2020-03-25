@@ -4,13 +4,13 @@
     $servernameH = "localhost";
     $databaseH = "sur8emp9_db_sur_empleo";
     $usernameH = "sur8emp9_adminDB";
-	$passwordH = "3M-zHFu,%0Cb";*/
+	$passwordH = "3M-zHFu,%0Cb";
 	
 	/*Conexion Local Ruben*/
     $servernameRP = "localhost";
     $databaseRP = "sur8emp9_db_sur_empleo";
     $usernameRP = "root";
-    $passwordRP = "";*/
+    $passwordRP = "";
 	
 	/*Conexion Local*/
 	$servernameJP = "localhost";

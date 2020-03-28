@@ -1,6 +1,7 @@
 <?php
 $name=$_POST['name'];
 $last_name=$_POST['last_name'];
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +16,7 @@ $last_name=$_POST['last_name'];
     <link rel="stylesheet" href="../css/style.css" media="screen" title="no title">
     <script language="JavaScript">
   function redireccionar() {
+    
     setTimeout("location.href='../post-30a.php'", 1000);
   }
   </script>

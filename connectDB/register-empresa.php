@@ -1,22 +1,7 @@
 <?php
 
-//Conexion Hosting
-/*$servername = "localhost";
-$database = "sur8emp9_db_sur_empleo";
-$username = "sur8emp9_adminDB";
-$password = "3M-zHFu,%0Cb";*/
+include("conn_db_se.php");
 
-/*Conexion Local*/
-$servername = "localhost";
-$database = "sur8emp9_db_sur_empleo";
-$username = "jpimentel";
-$password = "1234qwas";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-//include 'conn_db_se.php';
-//require 'conn_db_se.php';
 
 $id_user="SE".$_POST['rut'];
 $name=$_POST['name'];

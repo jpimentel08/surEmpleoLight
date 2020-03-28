@@ -3,249 +3,189 @@
 session_start();
 ?>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Sur Empleo</title>
-  <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" title="no title">
-  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen" title="no title">
-  <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Sur Empleo</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
+  </head>
 
-<body>
-  <main>
-    <!-- header portada -->
-    <?php include "include/header-postulante-a.php" ?>    
-  </main>
-<?php
-  if (isset($_SESSION['loggedin'])) {  
-  }else {
-    header("location:connectDB/postulante-session.php");
-    exit;
-  }
-  // checking the time now when check-login.php page starts
-  $now = time();           
-    if ($now > $_SESSION['expire']) {
-      session_destroy();
-      header("location:connectDB/postulante-session-expire.php");
-      /*echo "<div class='alert alert-danger mt-4' role='alert'>
-            <h4>Your session has expire!</h4>
-            <p><a href='login.html'>Login Here</a></p></div>";*/
-            exit;
+  <body>
+    <main>
+      <!-- header portada -->
+      <?php include "include/header-postulante-a.php" ?>    
+    </main>
+    <?php
+      if (isset($_SESSION['loggedin'])) {  
+      }else {
+        header("location:connectDB/postulante-session.php");
+        exit;
+      }
+      // checking the time now when check-login.php page starts
+      $now = time();           
+      if ($now > $_SESSION['expire']) {
+        session_destroy();
+        header("location:connectDB/postulante-session-expire.php");
+        exit;
       } ?>
-<!--conexion BD-->
-<?php
-	/*Conexion Hosting*/
-  $servernameH = "localhost";
-  $databaseH = "sur8emp9_db_sur_empleo";
-  $usernameH = "sur8emp9_adminDB";
-$passwordH = "3M-zHFu,%0Cb";
-  
-   	/*Conexion Hosting*/
-     $servernameH = "localhost";
-     $databaseH = "sur8emp9_db_sur_empleo";
-     $usernameH = "sur8emp9_adminDB";
-   $passwordH = "3M-zHFu,%0Cb";
-   
-   /*Conexion Local Ruben*/
-     $servernameRP = "localhost";
-     $databaseRP = "sur8emp9_db_sur_empleo";
-     $usernameRP = "root";
-     $passwordRP = "";
-   
-   /*Conexion Local*/
-   $servernameJP = "localhost";
-   $databaseJP = "sur8emp9_db_sur_empleo";
-   $usernameJP = "jpimentel";
-   $passwordJP = "1234qwas";
- 
-   // Create connection
-   //$conn = mysqli_connect($servernameH, $usernameH, $passwordH, $databaseH); //conexion Hosting
-   $conn = mysqli_connect($servernameRP, $usernameRP, $passwordRP, $databaseRP); //conexion Ruben
-   //$conn = mysqli_connect($servernameJP, $usernameJP, $passworJP, $databaseJP); //conexion Jose
 
-
-  // Check connection
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
+    <?php
+      //Conexion a BD
+      include("./connectDB/conn_db_se.php");
    	
-  // data sent from form login.html 
-  $email = $_SESSION['email']; 
+      // data sent from form login.html 
+      $email = $_SESSION['email']; 
 
-  //echo $email;
+      // Query sent to database
+      $result = mysqli_query($conn, "SELECT * FROM se_user WHERE se_user_email = '$email'");
 
-  // Query sent to database
-  $result = mysqli_query($conn, "SELECT * FROM se_user WHERE se_user_email = '$email'");
-  //echo "$result";
-      
-  // Variable $row hold the result of the query
-          
-  // Variable $hash hold the password hash on database
-  while($row = mysqli_fetch_array($result)){
-    $id = $row['se_user_id'];
-    $name = $row['se_user_name'];
-    $last_name = $row['se_user_last_name'];
-    $nation_birth = $row['se_user_nation'];
-    $rut = $row['se_user_rut'];
-    $visa = $row['se_user_visa'];
-    $type_visa = $row['se_user_type_visa'];
-    $date_birth = $row['se_user_date_birth'];
-    $gender = $row['se_user_gender'];
-    $country_resid = $row['se_user_country_resid'];
-    $phone = $row['se_user_telf'];
-    $cell_phone = $row['se_user_cell'];
-    $actual_job = $row['se_user_job_actual'];
-    $position = $row['se_user_job_position'];
-    $job_company = $row['se_user_job_company'];
-    $job_date = $row['se_user_job_date'];
-    $job_year = $row['se_user_job_year']; 
-    $photo = $row['se_user_photo']; 
-    $cv = $row['se_user_cv'];   
-  }
+      while($row = mysqli_fetch_array($result)){
+        $id = $row['se_user_id'];
+        $name = $row['se_user_name'];
+        $last_name = $row['se_user_last_name'];
+        $nation_birth = $row['se_user_nation'];
+        $rut = $row['se_user_rut'];
+        $visa = $row['se_user_visa'];
+        $type_visa = $row['se_user_type_visa'];
+        $date_birth = $row['se_user_date_birth'];
+        $gender = $row['se_user_gender'];
+        $country_resid = $row['se_user_country_resid'];
+        $phone = $row['se_user_telf'];
+        $cell_phone = $row['se_user_cell'];
+        $actual_job = $row['se_user_job_actual'];
+        $position = $row['se_user_job_position'];
+        $job_company = $row['se_user_job_company'];
+        $job_date = $row['se_user_job_date'];
+        $job_year = $row['se_user_job_year']; 
+        $photo = $row['se_user_photo']; 
+        $cv = $row['se_user_cv'];   
+      }
 
-  //Busqueda datos personal_data
-  $result2 = mysqli_query($conn, "SELECT * FROM se_personal_data WHERE se_user_id='$id'");
+      //Busqueda datos personal_data
+      $result_personal_data = mysqli_query($conn, "SELECT * FROM se_personal_data WHERE se_user_id='$id'");
 
-  while($row2 = mysqli_fetch_array($result2)){
-    $id = $row2['se_user_id'];
-    $civil_status = $row2['se_personal_data_status'];
-    $citizen = $row2['se_personal_data_status_citizen'];
-    $add1 = $row2['se_personal_data_address1'];
-    $region1 = $row2['se_personal_data_region1'];
-    $city1 = $row2['se_personal_data_city1'];
-    $comuna1 = $row2['se_personal_data_comuna1'];
-    $add2 = $row2['se_personal_data_address2'];
-    $region2 = $row2['se_personal_data_region2'];
-    $city2 = $row2['se_personal_data_city2'];
-    $comuna2 = $row2['se_personal_data_comuna2'];            
-  }
+      while($row_personal_data = mysqli_fetch_array($result_personal_data)){
+        $id = $row_personal_data['se_user_id'];
+        $civil_status = $row_personal_data['se_personal_data_status'];
+        $citizen = $row_personal_data['se_personal_data_status_citizen'];
+        $add1 = $row_personal_data['se_personal_data_address1'];
+        $region1 = $row_personal_data['se_personal_data_region1'];
+        $city1 = $row_personal_data['se_personal_data_city1'];
+        $comuna1 = $row_personal_data['se_personal_data_comuna1'];
+        $add2 = $row_personal_data['se_personal_data_address2'];
+        $region2 = $row_personal_data['se_personal_data_region2'];
+        $city2 = $row_personal_data['se_personal_data_city2'];
+        $comuna2 = $row_personal_data['se_personal_data_comuna2'];            
+      }
 
-  //Busqueda datos se_education_basic
-  $result3 = mysqli_query($conn, "SELECT * FROM se_education_data_basic WHERE se_user_id='$id'");
+      //Busqueda datos se_education_basic
+      $result_education_basic = mysqli_query($conn, "SELECT * FROM se_education_data_basic WHERE se_user_id='$id'");
 
-  while($row3 = mysqli_fetch_array($result3)){
-    $education_basic_user_id = $row3['se_user_id'];
-    $education_basic_institution= $row3['se_education_data_institution'];
-    $education_basic_region = $row3['se_education_data_region'];
-    $education_basic_last_year = $row3['se_education_data_last_year'];
-  }
+      while($row_education_basic = mysqli_fetch_array($result_education_basic)){
+        $education_basic_user_id = $row_education_basic['se_user_id'];
+        $education_basic_institution= $row_education_basic['se_education_data_institution'];
+        $education_basic_region = $row_education_basic['se_education_data_region'];
+        $education_basic_last_year = $row_education_basic['se_education_data_last_year'];
+      }
 
-  //Busqueda datos se_education_superior
-  $result4 = mysqli_query($conn, "SELECT * FROM se_education_data_superior WHERE se_user_id='$id'");
+      //Busqueda datos se_education_superior
+      $result_education_superior = mysqli_query($conn, "SELECT * FROM se_education_data_superior WHERE se_user_id='$id'");
 
-  while($row4 = mysqli_fetch_array($result4)){
-    $education_superior_user_id = $row4['se_user_id'];
-    $education_superior_institution= $row4['se_education_data_institution'];
-    $education_superior_career = $row4['se_education_data_career'];
-    $education_superior_mention = $row4['se_education_data_mention'];
-    $education_superior_status = $row4['se_education_data_status'];
-    $education_superior_begin_year = $row4['se_education_data_begin_year'];
-    $education_superior_last_year = $row4['se_education_data_last_year'];
-    $education_superior_region = $row4['se_education_data_region'];
-  }
+      while($row_edutation_superior = mysqli_fetch_array($result_education_superior)){
+        $education_superior_user_id = $row_edutation_superior['se_user_id'];
+        $education_superior_institution= $row_edutation_superior['se_education_data_institution'];
+        $education_superior_career = $row_edutation_superior['se_education_data_career'];
+        $education_superior_mention = $row_edutation_superior['se_education_data_mention'];
+        $education_superior_status = $row_edutation_superior['se_education_data_status'];
+        $education_superior_begin_year = $row_edutation_superior['se_education_data_begin_year'];
+        $education_superior_last_year = $row_edutation_superior['se_education_data_last_year'];
+        $education_superior_region = $row_edutation_superior['se_education_data_region'];
+      }
 
-    //Busqueda datos se_education_postgrade
-  $result5 = mysqli_query($conn, "SELECT * FROM se_education_data_postgrade WHERE se_user_id='$id'");
+      //Busqueda datos se_education_postgrade
+      $result_education_postgrade = mysqli_query($conn, "SELECT * FROM se_education_data_postgrade WHERE se_user_id='$id'");
 
-  while($row5 = mysqli_fetch_array($result5)){
-    $education_postgrade_user_id = $row5['se_user_id'];
-    $education_postgrade_institution= $row5['se_education_data_institution'];
-    $education_postgrade_type_study = $row5['se_education_data_type_study'];
-    $education_postgrade_mention = $row5['se_education_data_mention'];
-    $education_postgrade_description = $row5['se_education_data_description'];
-    $education_postgrade_status = $row5['se_education_data_status'];
-    $education_postgrade_begin_year = $row5['se_education_data_begin_year'];
-    $education_postgrade_last_year = $row5['se_education_data_last_year'];
-    $education_postgrade_region = $row5['se_education_data_region'];
-  }
+      while($row_education_postgrade = mysqli_fetch_array($result_education_postgrade)){
+        $education_postgrade_user_id = $row_education_postgrade['se_user_id'];
+        $education_postgrade_institution= $row_education_postgrade['se_education_data_institution'];
+        $education_postgrade_type_study = $row_education_postgrade['se_education_data_type_study'];
+        $education_postgrade_mention = $row_education_postgrade['se_education_data_mention'];
+        $education_postgrade_description = $row_education_postgrade['se_education_data_description'];
+        $education_postgrade_status = $row_education_postgrade['se_education_data_status'];
+        $education_postgrade_begin_year = $row_education_postgrade['se_education_data_begin_year'];
+        $education_postgrade_last_year = $row_education_postgrade['se_education_data_last_year'];
+        $education_postgrade_region = $row_education_postgrade['se_education_data_region'];
+      }
 
-  //Busqueda datos se_education_course
-  $result6 = mysqli_query($conn, "SELECT * FROM se_education_data_course WHERE se_user_id='$id'");
+      //Busqueda datos se_education_course
+      $result_education_course = mysqli_query($conn, "SELECT * FROM se_education_data_course WHERE se_user_id='$id'");
 
-  while($row6 = mysqli_fetch_array($result6)){
-    $education_course_user_id = $row6['se_user_id'];
-    $education_course_institution= $row6['se_education_data_institution'];
-    $education_course_type_study = $row6['se_education_type'];
-    $education_course_mention = $row6['se_education_mention'];
-    $education_course_description = $row6['se_education_description'];
-  }
+      while($row_education_course = mysqli_fetch_array($result_education_course)){
+        $education_course_user_id = $row_education_course['se_user_id'];
+        $education_course_institution= $row_education_course['se_education_data_institution'];
+        $education_course_type_study = $row_education_course['se_education_type'];
+        $education_course_mention = $row_education_course['se_education_mention'];
+        $education_course_description = $row_education_course['se_education_description'];
+      }
 
-  //Busqueda datos se_work_experience_actual
-  $result7 = mysqli_query($conn, "SELECT * FROM se_work_experience_actual WHERE se_user_id='$id'");
+      //Busqueda datos se_work_experience_actual
+      $result_work_experience_actual = mysqli_query($conn, "SELECT * FROM se_work_experience_actual WHERE se_user_id='$id'");
 
-  while($row7 = mysqli_fetch_array($result7)){
-    $work_actual_position = $row7['se_work_actual_position'];
-    $work_actual_area= $row7['se_work_actual_area'];
-    $work_actual_area_other = $row7['se_work_actual_area_other'];
-    $work_actual_company = $row7['se_work_actual_company'];
-    $work_actual_company_sector = $row7['se_work_actual_company_sector'];
-    $work_actual_company_sector_other = $row7['se_work_actual_company_sector_other'];
-    $work_actual_logo = $row7['se_work_actual_logo'];
-    $work_actual_since_month = $row7['se_work_actual_since_month'];
-    $work_actual_since_year = $row7['se_work_actual_since_year'];
-    $work_actual_last_month = $row7['se_work_actual_last_month'];
-    $work_actual_last_year = $row7['se_work_actual_last_year'];
-    $work_actual_region = $row7['se_work_actual_region'];
-    $work_actual_functions = $row7['se_work_actual_functions'];
-    $work_actual_goals = $row7['se_work_actual_goals'];
-  }
+      while($result_work_actual = mysqli_fetch_array($result_work_experience_actual)){
+        $work_actual_position = $result_work_actual['se_work_actual_position'];
+        $work_actual_area= $result_work_actual['se_work_actual_area'];
+        $work_actual_area_other = $result_work_actual['se_work_actual_area_other'];
+        $work_actual_company = $result_work_actual['se_work_actual_company'];
+        $work_actual_company_sector = $result_work_actual['se_work_actual_company_sector'];
+        $work_actual_company_sector_other = $result_work_actual['se_work_actual_company_sector_other'];
+        $work_actual_logo = $result_work_actual['se_work_actual_logo'];
+        $work_actual_since_month = $result_work_actual['se_work_actual_since_month'];
+        $work_actual_since_year = $result_work_actual['se_work_actual_since_year'];
+        $work_actual_last_month = $result_work_actual['se_work_actual_last_month'];
+        $work_actual_last_year = $result_work_actual['se_work_actual_last_year'];
+        $work_actual_region = $result_work_actual['se_work_actual_region'];
+        $work_actual_functions = $result_work_actual['se_work_actual_functions'];
+        $work_actual_goals = $result_work_actual['se_work_actual_goals'];
+      }
 
-  //Busqueda informacion referencias
-  $resultref = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
-
-   //Busqueda informacion referencias
-  $resultref2 = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
+      //Busqueda informacion referencias
+      $result_references = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
     
-  //Busqueda informacion lenguage
-  $result13 = mysqli_query($conn, "SELECT * FROM se_information_lenguage WHERE se_user_id='$id'");
+      //Busqueda informacion lenguage
+      $result_lenguaje = mysqli_query($conn, "SELECT * FROM se_information_lenguage WHERE se_user_id='$id'");
 
-  //Busqueda informacion software
-  $result14 = mysqli_query($conn, "SELECT * FROM se_information_software WHERE se_user_id='$id'");
+      //Busqueda informacion lenguage 2
+      $result_leng2 = mysqli_query($conn, "SELECT * FROM se_information_lenguage WHERE se_user_id='$id'");
 
-  //Busqueda informacion software
-  $result15 = mysqli_query($conn, "SELECT * FROM se_information_software WHERE se_user_id='$id'");
+      //Busqueda informacion software
+      $result_software = mysqli_query($conn, "SELECT * FROM se_information_software WHERE se_user_id='$id'");
 
-   //Busqueda informacion lenguage
-  $result16 = mysqli_query($conn, "SELECT * FROM se_information_lenguage WHERE se_user_id='$id'");
+      //Busqueda informacion software 2
+      $result_soft = mysqli_query($conn, "SELECT * FROM se_information_software WHERE se_user_id='$id'"); 
 
-     //Busqueda informacion habilitys
-  $result17 = mysqli_query($conn, "SELECT * FROM se_information_habilitys WHERE se_user_id='$id'");
+      //Busqueda informacion habilitys
+      $result_hability = mysqli_query($conn, "SELECT * FROM se_information_habilitys WHERE se_user_id='$id'");
 
-  while($row17 = mysqli_fetch_array($result17)){
-    $se_user_id = $row17['se_user_id'];
-    $se_information_hability= $row17['se_information_hability'];
-  }
-     //Busqueda datos region 
-  $result9 = mysqli_query($conn, "SELECT se_region_id, se_region FROM se_region ORDER BY se_region_id");
+      while($row_hability = mysqli_fetch_array($result_hability)){
+        $se_user_id = $row_hability['se_user_id'];
+        $se_information_hability= $row_hability['se_information_hability'];
+      }
 
-  //Busqueda datos region 2
-  $result10 = mysqli_query($conn, "SELECT se_region_id, se_region FROM se_region ORDER BY se_region_id");
+      //Busqueda datos region funcion
+      $result_regionf = mysqli_query($conn, "SELECT se_region_id, se_region FROM se_region ORDER BY se_region_id");
 
-  //busqueda datos resultado direccion principal
-  $result11 = mysqli_query($conn, "SELECT se_personal_data.se_personal_data_region1, se_personal_data.se_personal_data_city1, se_personal_data.se_personal_data_comuna1, se_region.se_region_id, se_region.se_region, se_ciudad.se_ciudad_id, se_ciudad.se_ciudad, se_comuna.se_comuna_id, se_comuna.se_comuna FROM se_personal_data, se_region, se_ciudad, se_comuna WHERE se_personal_data.se_personal_data_region1 = se_region.se_region_id && se_personal_data.se_personal_data_city1 = se_ciudad.se_ciudad_id && se_personal_data.se_personal_data_comuna1 = se_comuna.se_comuna_id && se_user_id='$id'");
+      //busqueda datos resultado direccion principal
+      $result_address = mysqli_query($conn, "SELECT se_personal_data.se_personal_data_region1, se_personal_data.se_personal_data_city1, se_personal_data.se_personal_data_comuna1, se_region.se_region_id, se_region.se_region, se_ciudad.se_ciudad_id, se_ciudad.se_ciudad, se_comuna.se_comuna_id, se_comuna.se_comuna FROM se_personal_data, se_region, se_ciudad, se_comuna WHERE se_personal_data.se_personal_data_region1 = se_region.se_region_id && se_personal_data.se_personal_data_city1 = se_ciudad.se_ciudad_id && se_personal_data.se_personal_data_comuna1 = se_comuna.se_comuna_id && se_user_id='$id'");
 
-  while($row11 = mysqli_fetch_array($result11)){
-    $id = $row11['se_user_id'];
-    $busqueda_region = $row11['se_region'];
-    $busqueda_ciudad = $row11['se_ciudad'];
-    $busqueda_comuna = $row11['se_comuna'];           
-  }
-
-  //busqueda datos resultado direccion secundaria
-  /*$result12 = mysqli_query($conn, "SELECT se_personal_data.se_personal_data_region2, se_personal_data.se_personal_data_city2, se_personal_data.se_personal_data_comuna2, se_region.se_region_id, se_region.se_region, se_ciudad.se_ciudad_id, se_ciudad.se_ciudad, se_comuna.se_comuna_id, se_comuna.se_comuna FROM se_personal_data, se_region, se_ciudad, se_comuna WHERE se_personal_data.se_personal_data_region2 = se_region.se_region_id && se_personal_data.se_personal_data_city2 = se_ciudad.se_ciudad_id && se_personal_data.se_personal_data_comuna2 = se_comuna.se_comuna_id && se_user_id='$id'");
-
-  while($row12 = mysqli_fetch_array($result12)){
-    $id = $row12['se_user_id'];
-    $busqueda_region1 = $row12['se_region'];
-    $busqueda_ciudad1 = $row12['se_ciudad'];
-    $busqueda_comuna1 = $row12['se_comuna'];           
-  }*/
-
-  
-   //Busqueda informacion referencias
-  $resultref3 = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
+      while($row_address = mysqli_fetch_array($result_address)){
+        $id = $row_address['se_user_id'];
+        $busqueda_region = $row_address['se_region'];
+        $busqueda_ciudad = $row_address['se_ciudad'];
+        $busqueda_comuna = $row_address['se_comuna'];           
+      }
 
 ?>
   
@@ -276,7 +216,7 @@ $passwordH = "3M-zHFu,%0Cb";
                       <p><a href="#"><?php echo $email?></a></p>
                       <p>30 años</p>
                       <p><?php echo $civil_status ?> / <?php echo $nation_birth ?> / <?php echo $rut?></p>
-                      <p>Dirección: <?php echo $add1 ?>, <?php echo $busqueda_comuna1 ?>, <?php echo $busqueda_ciudad1 ?>. <?php echo $busqueda_region1 ?>.</p>
+                      <p>Dirección: <?php echo $add1 ?>, <?php echo $busqueda_comuna ?>, <?php echo $busqueda_ciudad ?>. <?php echo $busqueda_region ?>.</p>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -313,7 +253,7 @@ $passwordH = "3M-zHFu,%0Cb";
                         	<p><strong>CARGO :</strong> <?php echo $work_actual_position?></p>
                           <p><strong>EMPRESA: </strong> <?php echo $work_actual_company?></p>
                           <p><strong>ÁREA: </strong> <?php echo $work_actual_area?></p>
-                          <p><strong>FECHA: </strong> <?php echo $work_actual_since_month?> <?php echo $work_actual_since_year?> - <?php echo $work_actual_last_month?> <?php echo $work_actual_last_year?> (1 mes)</p>
+                          <p><strong>FECHA: </strong> <?php echo $work_actual_since_month?> <?php echo $work_actual_since_year?> - <?php echo $work_actual_last_month?> <?php echo $work_actual_last_year?></p>
                           <p><strong>REGIÓN: </strong>R. <?php echo $work_actual_region?></p>
                       </div>
                     </div>
@@ -368,28 +308,28 @@ $passwordH = "3M-zHFu,%0Cb";
                       </div>
                       <div class="col-md-12">
                         <h3><strong>2. Referencias</strong></h3>
-                         <?php while($rowref2 = mysqli_fetch_assoc($resultref2)) { 
-                          $ref_boss = $rowref2['se_references_boss'];
-                          $ref_company = $rowref2['se_references_company'];
-                          $ref_phone = $rowref2['se_references_phone'];
+                         <?php while($row_references = mysqli_fetch_assoc($result_references)) { 
+                          $ref_boss = $row_references['se_references_boss'];
+                          $ref_company = $row_references['se_references_company'];
+                          $ref_phone = $row_references['se_references_phone'];
                         ?>
                           <p><?php echo $ref_boss ?> / <?php echo $ref_company ?> / <?php echo $ref_phone ?></p>
                         <?php } ?> 
                       </div>
                       <div class="col-md-6">
                         <h3><strong>3. Idiomas</strong></h3>
-                        <?php while($rowl = mysqli_fetch_assoc($result16)) { 
-                          $se_information_lenguage= $rowl['se_lenguage'];
-                          $se_information_lenguage_level = $rowl['se_lenguage_level'];
+                        <?php while($row_leng2 = mysqli_fetch_assoc($result_leng2)) { 
+                          $se_information_lenguage= $row_leng2['se_lenguage'];
+                          $se_information_lenguage_level = $row_leng2['se_lenguage_level'];
                         ?>
                           <p><?php echo $se_information_lenguage ?> / <?php echo $se_information_lenguage_level ?></p>
                         <?php } ?> 
                       </div>
                       <div class="col-md-6">
                         <h3><strong>4. Software</strong></h3>
-                        <?php while($rowsft = mysqli_fetch_assoc($result15)) { 
-                          $se_information_software= $rowsft['se_software'];
-                          $se_information_software_level = $rowsft['se_software_level'];
+                        <?php while($row_soft = mysqli_fetch_assoc($result_soft)) { 
+                          $se_information_software= $row_soft['se_software'];
+                          $se_information_software_level = $row_soft['se_software_level'];
                         ?>
                           <p><?php echo $se_information_software ?> / <?php echo $se_information_software_level ?></p>
                         <?php } ?> 
@@ -488,41 +428,6 @@ $passwordH = "3M-zHFu,%0Cb";
                   id_municipio = $(this).val();
                   $.post("include/getLocalidad.php", { id_municipio: id_municipio }, function(data){
                     $("#cbx_localidad").html(data);
-                  });            
-                });
-              })
-          });
-
-        //funcion direccion 2
-        $(document)
-          .ready(function(){
-            $("#cbx_estado2")
-              .change(function(){
-                $('#cbx_localidad2')
-                  .find('option')
-                  .remove()
-                  .end()
-                  .append('<option value="whatever"></option>')
-                  .val('whatever');
-                $("#cbx_estado2 option:selected")
-                  .each(function(){
-                    id_estado2 = $(this).val();
-                    $.post("include/getMunicipio2.php", { id_estado2: id_estado2 }, function(data){
-                      $("#cbx_municipio2").html(data);
-                    });            
-                  });
-              })
-          });
-      
-        $(document)
-          .ready(function(){
-            $("#cbx_municipio2")
-              .change(function () {
-                $("#cbx_municipio2 option:selected")
-                .each(function () {
-                  id_municipio2 = $(this).val();
-                  $.post("include/getLocalidad2.php", { id_municipio2: id_municipio2 }, function(data){
-                    $("#cbx_localidad2").html(data);
                   });            
                 });
               })
@@ -904,10 +809,37 @@ $passwordH = "3M-zHFu,%0Cb";
               <div class="inpppputt1__a pasos-reg">      
                 <label>Trabajando Actualmente *:</label>      
                 <div class="box-for-rut__a">          
-                  <div class="for-sex">
-                    <input type="radio" id="actual_job" name="actual_job" value="<?php echo $actual_job?>" required><label>Si </label>
+                  <!--<div class="for-sex">
+                    <input type="radio" id="actual_job" name="actual_job" value="<?php //echo $actual_job?>" required><label>Si </label>
                     <span style="margin: auto;"> </span>
-                    <input type="radio" id="actual_job" name="actual_job" value="<?php echo $actual_job?>"><label>No </label>
+                    <input type="radio" id="actual_job" name="actual_job" value="<?php //echo $actual_job?>"><label>No </label>
+                  </div>-->
+                  <div class="for-sex">
+                    <input type="radio" id="radioActualSi" name="actual_job" value="Si" onchange='changeActualSi()'><label>Si </label>
+                    <input type="radio" id="radioActualNo" name="actual_job" value="No" onchange='changeActualNo()'><label>No </label>
+
+                    <!------- Script para verificar cambios en radio de genero ------->
+                    <script>         
+                      const actualVar = "<?php echo $actual_job ?>"
+                      const radioNo = document.getElementById("radioActualNo");
+                      const radioSi = document.getElementById("radioActualSi");
+                      if(actualVar === 'Si'){
+                        radioSi.setAttribute('checked', '');
+                        radioNo.removeAttribute('checked');
+                      }else if(actualVar === 'No'){
+                        radioNo.setAttribute('checked', '');
+                        radioSi.removeAttribute('checked');
+                      }
+                      function changeActualSi(){
+                        radioSi.setAttribute('checked', '');
+                        radioNo.removeAttribute('checked');
+                      }
+                      function changeActualNo(){
+                        radioNo.setAttribute('checked', '');
+                        radioSi.removeAttribute('checked');
+                      }
+                    </script>
+
                   </div>
                 </div>
               </div>    
@@ -1025,7 +957,7 @@ $passwordH = "3M-zHFu,%0Cb";
                 <select name="cbx_estado" id="cbx_estado" style="width: 60%;">
                 <option value="<?php echo $busqueda_region ?>"><?php echo $busqueda_region ?></option>
                   <option value="0">Seleccionar Region</option>
-                  <?php while($row = mysqli_fetch_assoc($result9)) { ?>
+                  <?php while($row = mysqli_fetch_assoc($result_regionf)) { ?>
                   <option value="<?php echo $row['se_region_id']; ?>"><?php echo $row['se_region']; ?></option>
                   <?php } ?>
                 </select>                      
@@ -2764,29 +2696,31 @@ $passwordH = "3M-zHFu,%0Cb";
             </div>    
             <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
                 <form id="combo" method="post" action="connectDB/datos-eliminar-references.php">
-                    <?php while($rowref = mysqli_fetch_assoc($resultref)) {
-                        $ref_id = $rowref['se_references_id'];
-                        $ref_boss = $rowref['se_references_boss'];
-                        $ref_company = $rowref['se_references_company'];
-                        $ref_phone = $rowref['se_references_phone'];
-                        $ref_user_id = $rowref['se_user_id'];
+                <?php 
+                  $resref = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
+                while($rowRefer = mysqli_fetch_assoc($resref)) {
+                  $refer_id = $rowRefer['se_references_id'];
+                  $refer_boss = $rowRefer['se_references_boss'];
+                  $refer_company = $rowRefer['se_references_company'];
+                  $refer_phone = $rowRefer['se_references_phone']; 
+                  $se_user_id = $rowRefer['se_user_id'];
+
                 ?>
                 <div class="row">
                   <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $ref_boss; ?></p>
-                    <input type="text" name="information_references_boss" value="<?php echo $ref_boss; ?>" style="display: none;">
+                    <p><?php echo $se_information_lenguage ?></p>
+                    <input type="text" name="information_lenguage" value="<?php echo $refer_boss; ?>" style="display: none;">
                   </div>
                   <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $ref_company ?></p>
-                    <input type="text" name="information_references_company" value="<?php echo $ref_company; ?>" style="display: none;">
+                    <p><?php echo $se_information_lenguage_level ?></p>
+                    <input type="text" name="information_lenguage_level" value="<?php echo $refer_company; ?>" style="display: none;">
                   </div>
                   <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $ref_phone; ?></p>
-                    <input type="text" name="information_references_phone" value="<?php echo $ref_phone; ?>" style="display: none;">
+                    <p><?php echo $se_information_lenguage_level ?></p>
+                    <input type="text" name="information_lenguage_level" value="<?php echo $refer_phone; ?>" style="display: none;">
                   </div>
                   <div class="col-md-1 boxxx-infforrr2__a">
-                    <input type="text" name="information_references_id" value="<?php echo $ref_id; ?>" style="display: none;">
-                    <input type="text" name="information_references_user_id" value="<?php echo $ref_user_id; ?>" style="display: none;">
+                    <input type="text" name="information_lenguage_id" value="<?php echo $refer_id; ?>" style="display: none;">
                       <button type="submit" class="btn btn-default"><i class="fa fa-trash-o btn-azules1" aria-hidden="true"></i></button>
                     </div>
                 </div>
@@ -2839,11 +2773,11 @@ $passwordH = "3M-zHFu,%0Cb";
             </div>
             <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
               <form id="combo" method="post" action="connectDB/datos-eliminar-idioma.php">
-                <?php while($rowe = mysqli_fetch_assoc($result13)) {
-                  $se_information_lenguage_id = $rowe['se_information_lenguage_id'];
-                  $se_information_lenguage= $rowe['se_lenguage'];
-                  $se_information_lenguage_level = $rowe['se_lenguage_level'];
-                  $se_user_id = $rowe['se_user_id']; 
+                <?php while($row_lenguaje = mysqli_fetch_assoc($result_lenguaje)) {
+                  $se_information_lenguage_id = $row_lenguaje['se_information_lenguage_id'];
+                  $se_information_lenguage= $row_lenguaje['se_lenguage'];
+                  $se_information_lenguage_level = $row_lenguaje['se_lenguage_level'];
+                  $se_user_id = $row_lenguaje['se_user_id']; 
 
                 ?>
                 <div class="row">
@@ -2908,12 +2842,11 @@ $passwordH = "3M-zHFu,%0Cb";
             </div>
             <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
               <form id="combo" method="post" action="connectDB/datos-eliminar-software.php">
-                <?php while($rows = mysqli_fetch_assoc($result14)) {
-                  $se_information_software_id = $rows['se_software_id'];
-                  $se_information_software= $rows['se_software'];
-                  $se_information_software_level = $rows['se_software_level'];
-                  $se_user_id = $rows['se_user_id']; 
-
+                <?php while($row_software = mysqli_fetch_assoc($result_software)) {
+                  $se_information_software_id = $row_software['se_software_id'];
+                  $se_information_software = $row_software['se_software'];
+                  $se_information_software_level = $row_software['se_software_level'];
+                  $se_user_id = $row_software['se_user_id']; 
                 ?>
                 <div class="row">
                   <div class="col-md-3 boxxx-infforrr2__ab">

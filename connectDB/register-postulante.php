@@ -66,24 +66,53 @@ if (!$conn) {
 			$since_month=$_POST['since_month'];
 			$since_year=$_POST['since_year'];
 			$position_job=$_POST['position_job'];
-			$photoProfile=$_FILES['photo']['name'];
-			$archivoProfile=$_FILES['photo']['tmp_name'];
-			$pathProfile="img";
-			$pathProfile=$pathProfile."/".$photoProfile;
-			$cv=$_POST['cv'];
 			$pregunta1=$_POST['question1'];
 			$respuesta1=$_POST['answer1'];
 			$pregunta2=$_POST['question2'];
 			$respuesta2=$_POST['answer2'];
 			$no_info="No Info";
 
-			move_uploaded_file($archivoProfile,$pathProfile);
+			# definimos la carpeta destino
+			$carpetaDestino="imagenes/";
+ 
+				# si hay algun archivo que subir
+				if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"][0]) {
+		  
+					# recorremos todos los arhivos que se han subido
+					for($i=0;$i<count($_FILES["archivo"]["name"]);$i++) {
+		  
+						# si es un formato de imagen
+						if($_FILES["archivo"]["type"][$i]=="image/jpeg" || $_FILES["archivo"]["type"][$i]=="image/pjpeg" || $_FILES["archivo"]["type"][$i]=="image/gif" || $_FILES["archivo"]["type"][$i]=="image/png") {
+		  
+							# si exsite la carpeta o se ha creado
+							if(file_exists($carpetaDestino) || @mkdir($carpetaDestino)) {
+								$origen=$_FILES["archivo"]["tmp_name"][$i];
+								$destino=$carpetaDestino.$_FILES["archivo"]["name"][$i];
+		  
+							 	# movemos el archivo
+							 	if(@move_uploaded_file($origen, $destino)) {
+									echo "<br>".$_FILES["archivo"]["name"][$i]." movido correctamente";
+							 	}else{
+									echo "<br>No se ha podido mover el archivo: ".$_FILES["archivo"]["name"][$i];
+							 	}
+						 	}else{
+								echo "<br>No se ha podido crear la carpeta: ".$carpetaDestino;
+						 	}
+					 	}else{
+							echo "<br>".$_FILES["archivo"]["name"][$i]." - NO es imagen jpg, png o gif";
+					 	}
+				 	}
+			 	}else{
+					echo "<br>No se ha subido ninguna imagen";
+			 	}
+			
+			$cv=$_POST['cv'];
 
 			// The password_hash() function convert the password in a hash before send it to the database
 			$passHash = password_hash($pass, PASSWORD_DEFAULT);
 
 			//SQL user
-    		$sql_registro_user="INSERT INTO se_user VALUES ('$id_user','$name','$last_name','$nation','$rut','$visa','$perm_job','$email','$date_birth','$gender','$country_resid','$phone','$cell_phone','$actual_job','$company','$since_month','$since_year','$position_job','$pathProfile','$cv')";
+    		$sql_registro_user="INSERT INTO se_user VALUES ('$id_user','$name','$last_name','$nation','$rut','$visa','$perm_job','$email','$date_birth','$gender','$country_resid','$phone','$cell_phone','$actual_job','$company','$since_month','$since_year','$position_job','$destino','$cv')";
 
     		//SQL access
     		$sql_registro_access="INSERT INTO se_access VALUES ('$name','$email','$passHash','$pregunta1','$respuesta1','$pregunta2','$respuesta2','$type_user','$id_user')";

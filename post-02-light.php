@@ -368,7 +368,7 @@
                               <!--Foto-->
                               <div class="inpppputt1__a">
                                 <label>Foto :</label>
-                                <input type="file" id="photo" name="photo" value="" required>
+                                <input type="file" name="archivo[]" multiple="multiple" required>
                               </div>
                               <div class="inpppputt1__a">
                                 <div class="row">

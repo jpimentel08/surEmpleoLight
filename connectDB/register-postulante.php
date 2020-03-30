@@ -72,47 +72,40 @@ if (!$conn) {
 			$respuesta2=$_POST['answer2'];
 			$no_info="No Info";
 
-			# definimos la carpeta destino
-			$carpetaDestino="imagenes/";
+			// Recibo los datos de la imagen
+			$nombre_img = $_FILES['imagen']['name'];
+			$tipo = $_FILES['imagen']['type'];
+			$tamano = $_FILES['imagen']['size'];
  
-				# si hay algun archivo que subir
-				if(isset($_FILES["archivo"]) && $_FILES["archivo"]["name"][0]) {
-		  
-					# recorremos todos los arhivos que se han subido
-					for($i=0;$i<count($_FILES["archivo"]["name"]);$i++) {
-		  
-						# si es un formato de imagen
-						if($_FILES["archivo"]["type"][$i]=="image/jpeg" || $_FILES["archivo"]["type"][$i]=="image/pjpeg" || $_FILES["archivo"]["type"][$i]=="image/gif" || $_FILES["archivo"]["type"][$i]=="image/png") {
-		  
-							# si exsite la carpeta o se ha creado
-							if(file_exists($carpetaDestino) || @mkdir($carpetaDestino)) {
-								$origen=$_FILES["archivo"]["tmp_name"][$i];
-								$destino=$carpetaDestino.$_FILES["archivo"]["name"][$i];
-		  
-							 	# movemos el archivo
-							 	if(@move_uploaded_file($origen, $destino)) {
-									echo "<br>".$_FILES["archivo"]["name"][$i]." movido correctamente";
-							 	}else{
-									echo "<br>No se ha podido mover el archivo: ".$_FILES["archivo"]["name"][$i];
-							 	}
-						 	}else{
-								echo "<br>No se ha podido crear la carpeta: ".$carpetaDestino;
-						 	}
-					 	}else{
-							echo "<br>".$_FILES["archivo"]["name"][$i]." - NO es imagen jpg, png o gif";
-					 	}
-				 	}
-			 	}else{
-					echo "<br>No se ha subido ninguna imagen";
-			 	}
-			
-			$cv=$_POST['cv'];
+			//Si existe imagen y tiene un tamaño correcto
+			if (($nombre_img == !NULL) && ($_FILES['imagen']['size'] <= 200000)){
+				   
+				//indicamos los formatos que permitimos subir a nuestro servidor
+   				if (($_FILES["imagen"]["type"] == "image/gif") || ($_FILES["imagen"]["type"] == "image/jpeg") || ($_FILES["imagen"]["type"] == "image/jpg") || ($_FILES["imagen"]["type"] == "image/png")){
+					  
+					// Ruta donde se guardarán las imágenes que subamos
+      				$directorio = $_SERVER['DOCUMENT_ROOT'].'/surEmpleoLight/img/uploads';
+					  
+					// Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
+      				move_uploaded_file($_FILES['imagen']['tmp_name'],$directorio.$nombre_img);
+    			}else{
+					   
+					//si no cumple con el formato
+					echo "No se puede subir una imagen con ese formato ";
+				}
+			}else{
+   				//si existe la variable pero se pasa del tamaño permitido
+   				if($nombre_img == !NULL) echo "La imagen es demasiado grande ";
+			}
+		
+			//$cv=$_POST['cv'];
+			$cv=$directorio;
 
 			// The password_hash() function convert the password in a hash before send it to the database
 			$passHash = password_hash($pass, PASSWORD_DEFAULT);
 
 			//SQL user
-    		$sql_registro_user="INSERT INTO se_user VALUES ('$id_user','$name','$last_name','$nation','$rut','$visa','$perm_job','$email','$date_birth','$gender','$country_resid','$phone','$cell_phone','$actual_job','$company','$since_month','$since_year','$position_job','$destino','$cv')";
+    		$sql_registro_user="INSERT INTO se_user VALUES ('$id_user','$name','$last_name','$nation','$rut','$visa','$perm_job','$email','$date_birth','$gender','$country_resid','$phone','$cell_phone','$actual_job','$company','$since_month','$since_year','$position_job','$nombre_img','$cv')";
 
     		//SQL access
     		$sql_registro_access="INSERT INTO se_access VALUES ('$name','$email','$passHash','$pregunta1','$respuesta1','$pregunta2','$respuesta2','$type_user','$id_user')";

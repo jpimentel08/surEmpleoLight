@@ -3,20 +3,20 @@
 session_start();
 ?>
 <?php
-include("conn_db_se.php");
+	include("conn_db_se.php");
 
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}else{
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}else{
 
-		$email = $_SESSION['email']; 
+			$email = $_SESSION['email']; 
 
-		// Query sent to database
-		$result = mysqli_query($conn, "SELECT * FROM se_user WHERE se_user_email = '$email'");
-		//echo "$result";
-		          
-		while($row = mysqli_fetch_array($result)){
-			$id = $row['se_user_id'];
+			// Query sent to database
+			$result = mysqli_query($conn, "SELECT * FROM se_user WHERE se_user_email = '$email'");
+			//echo "$result";
+					
+			while($row = mysqli_fetch_array($result)){
+				$id = $row['se_user_id'];
 		}
 
 		$id_user=$id;

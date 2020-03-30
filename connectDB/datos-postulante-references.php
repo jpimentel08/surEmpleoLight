@@ -29,23 +29,13 @@ include("conn_db_se.php");
 		
 		$query=mysqli_query($conn, $sql_registro_information_references);
 		
-
  		if ($query){
  			//echo "Error: " . $query . "<br>" . mysqli_error($conn);
- 			//echo "Error: " . $query2 . "<br>" . mysqli_error($conn);
 	    	header("location:datos-actualizados.php");
-			/*echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
- 			echo "<h4>" . "Bienvenido: " . $_POST['email'] . "</h4>" . "\n\n";
- 			echo "<h5>" . "Hacer Login: " . "<a href='index.php'>Login</a>" . "</h5>";*/
 		}else{
 			//echo "Error: " . $query . "<br>" . mysqli_error($conn);
 	    	header("location:datos-noactualizados.php");
-	    	//echo "Error: " . $query . "<br>" . mysqli_error($conn);
-	    	//echo "Error: " . $query2 . "<br>" . mysqli_error($conn);
 	    	
-	    	//echo $sql_registro2;
- 			/*echo "<br />" . "<h2>" . "Usuario No Creado Exitosamente!" . "</h2>";
- 			echo "<h4>Por favor intentar de nuevo</h4>"; */
 		}
 }
 mysqli_close($conn);

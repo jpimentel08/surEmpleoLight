@@ -153,6 +153,9 @@ session_start();
 
       //Busqueda informacion referencias
       $result_references = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
+
+      //Busqueda informacion referencias
+      $result_refer2 = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
     
       //Busqueda informacion lenguage
       $result_lenguaje = mysqli_query($conn, "SELECT * FROM se_information_lenguage WHERE se_user_id='$id'");
@@ -2610,35 +2613,39 @@ session_start();
 <!-- MODAL 4 -- INFORMACION COMPLEMENTARIA -->
 <div class="modal fade bs-example-modal-lg m-lg" id="mod-edit4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg" role="document">
-    <form id="combo" method="post" action="connectDB/datos-postulante-infocomple.php"> 
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">III. INFORMACIÓN COMPLEMENTARIA</h4>
       </div>
-      
-        <div class="row cont-cv color-f">
-        
-        <h4 class="modal-title">Logos y Habilidades</h4>
-        <div class="col-md-12 boxxx-infforrr2__a" style="margin:1em;">
-          <div class="ediciones-botones"></div> 
-          <div class="clearfix"></div>
-          <div class="ssspccc-inpusssess1__a">
-            <div class="inpppputt1__a">
-              <label>Otros Logos y Habilidades </label>
-              <textarea name="information_habilitys" rows="5" cols="30" style="width:90.5%;" ><?php echo $se_information_hability ?> </textarea>
-            </div>
-          </div>
-        </div>                            
-        <h4 class="modal-title" style="margin-bottom:1em;">Referencias</h4>        
-        <div class="row" style="margin:0;">
-          <form id="combo" method="post" action="connectDB/datos-postulante-references.php">
-            <div class="col-md-12 boxxx-infforrr2__a">
+      <div class="row cont-cv color-f">
+        <div class="row" style="margin:15px;">
+          <h4 class="modal-title">Logos y Habilidades</h4>
+          <form id="combo" method="post" action="connectDB/datos-postulante-infocomple.php">
+            <div class="col-md-12 boxxx-infforrr2__a" style="margin:1em;">
+              <div class="ediciones-botones"></div> 
+              <div class="clearfix"></div>
               <div class="ssspccc-inpusssess1__a">
                 <div class="inpppputt1__a">
-                  <label style="margin:.5em;">Referencias Jefe (directo) </label>
+                  <label>Otros Logos y Habilidades </label>
+                  <textarea name="information_habilitys" rows="5" cols="30" style="width:90.5%;" ><?php echo $se_information_hability ?> </textarea>
                 </div>
-              </div>      
+              </div>
+            </div>
+            <div class="col-md-12" style="text-align:right;">
+              <button type="submit" class="btn btn-default">Agregar</button>
+            </div>
+          </form>
+        </div>
+        <div class="row" style="margin:15px;">
+          <h4 class="modal-title" style="margin-bottom:1em;">Referencias</h4> 
+          <div class="col-md-12 boxxx-infforrr2__a" >
+            <div class="ssspccc-inpusssess1__a">
+              <div class="inpppputt1__a">
+                <label style="margin:.5em;">Referencias Jefe (directo) </label>
+              </div>
+            </div>    
+            <form id="combo" method="post" action="connectDB/datos-postulante-references.php"> 
               <div class="col-md-3 boxxx-infforrr2__a">
                 <div class="ssspccc-inpusssess1__a">
                   <div class="inpppputt1__a">
@@ -2652,7 +2659,7 @@ session_start();
               <div class="col-md-3 boxxx-infforrr2__a">
                 <div class="ssspccc-inpusssess1__a">
                   <div class="inpppputt1__a">
-                    <label style="margin:.5em;">Empresa </label>
+                    <label style="margin:.5em;">Cargo / Empresa </label>
                   </div>
                   <div class="inpppputt1__a">
                     <input type="text" name="references_company" value="" placeholder="Cargo / Empresa">
@@ -2660,221 +2667,217 @@ session_start();
                 </div>
               </div>
               <div class="col-md-3 boxxx-infforrr2__a">  
-              <div class="ssspccc-inpusssess1__a">
-                <div class="inpppputt1__a">
-                  <label style="margin:.5em;">Telefono Contacto</label>
-                </div>
-                <div class="inpppputt1__a">
-                  <input type="text" name="references_phone" value="" placeholder="ej: +569 1234 5678" style="width:100%;">
+                <div class="ssspccc-inpusssess1__a">
+                  <div class="inpppputt1__a">
+                    <label style="margin:.5em;">Telefono Contacto</label>
+                  </div>
+                  <div class="inpppputt1__a">
+                    <input type="text" name="references_phone" value="" placeholder="ej: +569 1234 5678" style="width:100%;">
+                  </div>
                 </div>
               </div>
+              <div class="col-md-12" style="text-align:right;">
+                <button type="submit" class="btn btn-default">Agregar</button>
               </div>
-            </div>
-            <div class="col-md-12" style="text-align:right;">
-              <button type="submit" class="btn btn-default">Agregar</button>
-            </div>
-          </form>
-        </div>  
-        <div class="row" style="margin-bottom:2em;">
-          <div class="col-md-12">
-            <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
-              <div class="row">
-                
-                <div class="col-md-3 boxxx-infforrr2__a">
-                  <p><strong>Jefe Directo</strong></p>
-                </div>
-                <div class="col-md-3 boxxx-infforrr2__a">
-                  <p><strong>Empresa</strong></p>
-                </div>
-                <div class="col-md-3 boxxx-infforrr2__a">
-                  <p><strong>Teléfono Contacto</strong></p>
-                </div>
-                <div class="col-md-1 boxxx-infforrr2__a">
-                  
+            </form>  
+            <div class="row" style="margin-bottom:2em;">
+              <div class="col-md-12" style="margin-top: 15px;">
+                <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
+                  <div class="row">  
+                    <div class="col-md-3 boxxx-infforrr2__a">
+                      <p><strong>Jefe Directo</strong></p>
+                    </div>
+                    <div class="col-md-3 boxxx-infforrr2__a">
+                      <p><strong>Cargo / Empresa</strong></p>
+                    </div>
+                    <div class="col-md-3 boxxx-infforrr2__a">
+                      <p><strong>Teléfono Contacto</strong></p>
+                    </div>
+                    <div class="col-md-1 boxxx-infforrr2__a"></div>
+                  </div>
+                </div>    
+                <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
+                  <?php 
+                    while($row_refer_2 = mysqli_fetch_assoc($result_refer2)) {
+                      $refer_id = $row_refer_2['se_references_id'];
+                      $refer_boss = $row_refer_2['se_references_boss'];
+                      $refer_company = $row_refer_2['se_references_company'];
+                      $refer_phone = $row_refer_2['se_references_phone']; 
+                      $refer_user_id = $row_refer_2['se_user_id'];
+                  ?>
+                    <div class="row">
+                      <form id="combo" method="post" action="connectDB/datos-eliminar-references.php">
+                        <div class="col-md-3 boxxx-infforrr2__ab">
+                          <p><?php echo $refer_boss ?></p>
+                          <input type="text" name="refer_boss" value="<?php echo $refer_boss; ?>" style="display: none;">
+                        </div>
+                        <div class="col-md-3 boxxx-infforrr2__ab">
+                          <p><?php echo $refer_company ?></p>
+                          <input type="text" name="refer_company" value="<?php echo $refer_company; ?>" style="display: none;">
+                        </div>
+                        <div class="col-md-3 boxxx-infforrr2__ab">
+                          <p><?php echo $refer_phone ?></p>
+                          <input type="text" name="refer_phone" value="<?php echo $refer_phone; ?>" style="display: none;">
+                        </div>
+                        <div class="col-md-1 boxxx-infforrr2__a">
+                          <input type="text" name="refer_id" value="<?php echo $refer_id; ?>" style="display: none;">
+                          <input type="text" name="refer_user_id" value="<?php echo $refer_user_id; ?>" style="display: none;">
+                          <button type="submit" class="btn btn-default"><i class="fa fa-trash-o btn-azules1" aria-hidden="true"></i></button>
+                        </div>
+                      </form>
+                    </div>
+                  <?php } ?>
                 </div>
               </div>
-            </div>    
-            <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
-                <form id="combo" method="post" action="connectDB/datos-eliminar-references.php">
-                <?php 
-                  $resref = mysqli_query($conn, "SELECT * FROM se_information_references WHERE se_user_id='$id'");
-                while($rowRefer = mysqli_fetch_assoc($resref)) {
-                  $refer_id = $rowRefer['se_references_id'];
-                  $refer_boss = $rowRefer['se_references_boss'];
-                  $refer_company = $rowRefer['se_references_company'];
-                  $refer_phone = $rowRefer['se_references_phone']; 
-                  $se_user_id = $rowRefer['se_user_id'];
-
-                ?>
-                <div class="row">
-                  <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $se_information_lenguage ?></p>
-                    <input type="text" name="information_lenguage" value="<?php echo $refer_boss; ?>" style="display: none;">
-                  </div>
-                  <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $se_information_lenguage_level ?></p>
-                    <input type="text" name="information_lenguage_level" value="<?php echo $refer_company; ?>" style="display: none;">
-                  </div>
-                  <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $se_information_lenguage_level ?></p>
-                    <input type="text" name="information_lenguage_level" value="<?php echo $refer_phone; ?>" style="display: none;">
-                  </div>
-                  <div class="col-md-1 boxxx-infforrr2__a">
-                    <input type="text" name="information_lenguage_id" value="<?php echo $refer_id; ?>" style="display: none;">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-trash-o btn-azules1" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-                <?php } ?>
-              </form>
-            </div>
-          </div>
-        </div>       
-        <h4 class="modal-title" style="margin-bottom:1em;">Idiomas y Software</h4>        
-        <div class="space-forrrmmm2__a cuadros-blanco">
-          <div class="inffff-adaddd1__a">
-            <p><strong>Idiomas</strong></p>
-            <!-- Inicio FORM --> 
-            <div class="space-uunn1__a">
-              <form id="combo" method="post" action="connectDB/datos-postulante-idioma.php">
-                <div class="col-md-6">     
-                  <div class="ssspccc-inpusssess1__a pasos-reg">  
-                    <div class="inpppputt1__a pasos-reg">     
-                      <select name="information_lenguage">
-                        <option>- Seleccionar -</option>
-                        <option value="Español">Español </option>
-                        <option value="Inglés">Inglés </option>
-                        <option value="Italiano">Italiano </option>
-                        <option value="Francés">Francés </option>
-                        <option value="Aleman">Aleman </option>
-                        <option value="Portugués">Portugués </option>
-                        <option value="Japonés">Japonés </option>
-                        <option value="Mandarin">Mandarin </option>
-                      </select>
-                    </div>  
-                  </div>
-                </div>  
-                <div class="col-md-6">        
-                  <div class="ssspccc-inpusssess1__a">      
-                    <div class="inpppputt1__a">      
-                      <select name="information_lenguage_level">
-                        <option>- Nivel -</option>
-                        <option value="Básico">Básico </option>
-                        <option value="Medio">Medio </option>
-                        <option value="Avanzado">Avanzado </option>
-                      </select>
-
-                    </div>                 
-                  </div>
-                </div>
-                <div class="col-md-12" style="text-align:right;">
-                  <button type="submit" class="btn btn-default">Agregar</button>
-                </div>
-              </form>
-            </div>
-            <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
-              <form id="combo" method="post" action="connectDB/datos-eliminar-idioma.php">
-                <?php while($row_lenguaje = mysqli_fetch_assoc($result_lenguaje)) {
-                  $se_information_lenguage_id = $row_lenguaje['se_information_lenguage_id'];
-                  $se_information_lenguage= $row_lenguaje['se_lenguage'];
-                  $se_information_lenguage_level = $row_lenguaje['se_lenguage_level'];
-                  $se_user_id = $row_lenguaje['se_user_id']; 
-
-                ?>
-                <div class="row">
-                  <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $se_information_lenguage ?></p>
-                    <input type="text" name="information_lenguage" value="<?php echo $se_information_lenguage; ?>" style="display: none;">
-                  </div>
-                  <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $se_information_lenguage_level ?></p>
-                    <input type="text" name="information_lenguage_level" value="<?php echo $se_information_lenguage_level; ?>" style="display: none;">
-                  </div>
-                  <div class="col-md-1 boxxx-infforrr2__a">
-                    <input type="text" name="information_lenguage_id" value="<?php echo $se_information_lenguage_id; ?>" style="display: none;">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-trash-o btn-azules1" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-                <?php } ?>
-              </form>
-            </div>
-          </div>
-          <div class="inffff-adaddd1__a">
-            <p><strong>Software</strong></p>
-            <!-- Inicio FORM --> 
-            <div class="space-uunn1__a">
-              <form id="combo" method="post" action="connectDB/datos-postulante-software.php">
-                <div class="col-md-6">    
-                  <div class="ssspccc-inpusssess1__a pasos-reg">  
-                    <div class="inpppputt1__a pasos-reg">     
-                      <select name="information_software">
-                        <option>- Seleccionar -</option>
-                          <option value="Microsoft Access">Microsoft Access</option>
-                          <option value="Microsoft Excel">Microsoft Excel</option>
-                          <option value="Microsoft Outlook">Microsoft Outlook</option>
-                          <option value="Microsoft PowerPoint">Microsoft PowerPoint</option>
-                          <option value="Microsoft Word">Microsoft Word</option>
-                          <option value="Open Office">Open Office</option>
-                          <option value="StarOffice">StarOffice</option>
-                          <option value="Lotus Notes">Lotus Notes</option>
-                          <option value="Pages">Pages</option>
-                          <option value="Numbers">Numbers</option>
-                          <option value="Keynote">Keynote</option>
-                      </select>
-                    </div>  
-                  </div>
-                </div>  
-                <div class="col-md-6">        
-                  <div class="ssspccc-inpusssess1__a">      
-                    <div class="inpppputt1__a">      
-                      <select name="information_software_level">
-                        <option>- Nivel -</option>
-                        <option>Básico </option>
-                        <option>Medio </option>
-                        <option>Avanzado </option>
-                      </select>
-                    </div>                 
-                  </div>
-                </div>
-                <div class="col-md-12" style="text-align:right;">
-                  <button type="submit" class="btn btn-default">Agregar</button>
-                </div>
-              </form>
-            </div>
-            <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
-              <form id="combo" method="post" action="connectDB/datos-eliminar-software.php">
-                <?php while($row_software = mysqli_fetch_assoc($result_software)) {
-                  $se_information_software_id = $row_software['se_software_id'];
-                  $se_information_software = $row_software['se_software'];
-                  $se_information_software_level = $row_software['se_software_level'];
-                  $se_user_id = $row_software['se_user_id']; 
-                ?>
-                <div class="row">
-                  <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p style="width: 7em;"><?php echo $se_information_software ?></p>
-                    <input type="text" name="information_software" value="<?php echo $se_information_software; ?>" style="display: none;">
-                  </div>
-                  <div class="col-md-3 boxxx-infforrr2__ab">
-                    <p><?php echo $se_information_software_level ?></p>
-                    <input type="text" name="information_software_level" value="<?php echo $se_information_software_level; ?>" style="display: none;">
-                  </div>
-                  <div class="col-md-1 boxxx-infforrr2__a">
-                    <input type="text" name="information_software_id" value="<?php echo $se_information_software_id; ?>" style="display: none;">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-trash-o btn-azules1" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-                <?php } ?>
-              </form>
-            </div>
+            </div> 
           </div>
         </div>
-        </div>        
+        <div class="row" style="margin:15px;">
+        <h4 class="modal-title" style="margin-bottom:1em;">Idiomas y Software</h4>  
+          <div class="col-md-12 boxxx-infforrr2__a">  
+            <div class="space-forrrmmm2__a cuadros-blanco">
+              <div class="inffff-adaddd1__a">
+              <p><strong>Idiomas</strong></p>
+                <!-- Inicio FORM --> 
+                <div class="space-uunn1__a">
+                  <form id="combo" method="post" action="connectDB/datos-postulante-idioma.php">
+                    <div class="col-md-6">     
+                      <div class="ssspccc-inpusssess1__a pasos-reg">  
+                        <div class="inpppputt1__a pasos-reg">     
+                          <select name="information_lenguage">
+                            <option>- Seleccionar -</option>
+                            <option value="Español">Español </option>
+                            <option value="Inglés">Inglés </option>
+                            <option value="Italiano">Italiano </option>
+                            <option value="Francés">Francés </option>
+                            <option value="Aleman">Aleman </option>
+                            <option value="Portugués">Portugués </option>
+                            <option value="Japonés">Japonés </option>
+                            <option value="Mandarin">Mandarin </option>
+                          </select>
+                        </div>  
+                      </div>
+                    </div>  
+                    <div class="col-md-6">        
+                      <div class="ssspccc-inpusssess1__a">      
+                        <div class="inpppputt1__a">      
+                          <select name="information_lenguage_level">
+                            <option>- Nivel -</option>
+                            <option value="Básico">Básico </option>
+                            <option value="Medio">Medio </option>
+                            <option value="Avanzado">Avanzado </option>
+                          </select>
+                        </div>                 
+                      </div>
+                    </div>
+                    <div class="col-md-12" style="text-align:right;">
+                      <button type="submit" class="btn btn-default">Agregar</button>
+                    </div>
+                  </form>
+                </div>
+                <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
+                  <?php while($row_lenguaje = mysqli_fetch_assoc($result_lenguaje)) {
+                    $se_information_lenguage_id = $row_lenguaje['se_information_lenguage_id'];
+                    $se_information_lenguage= $row_lenguaje['se_lenguage'];
+                    $se_information_lenguage_level = $row_lenguaje['se_lenguage_level'];
+                    $se_user_id = $row_lenguaje['se_user_id']; 
+                  ?>
+                    <div class="row">
+                      <form id="combo" method="post" action="connectDB/datos-eliminar-idioma.php">
+                        <div class="col-md-3 boxxx-infforrr2__ab">
+                          <p><?php echo $se_information_lenguage ?></p>
+                          <input type="text" name="information_lenguage" value="<?php echo $se_information_lenguage; ?>" style="display: none;">
+                        </div>
+                        <div class="col-md-3 boxxx-infforrr2__ab">
+                          <p><?php echo $se_information_lenguage_level ?></p>
+                          <input type="text" name="information_lenguage_level" value="<?php echo $se_information_lenguage_level; ?>" style="display: none;">
+                        </div>
+                        <div class="col-md-1 boxxx-infforrr2__a">
+                          <input type="text" name="information_lenguage_id" value="<?php echo $se_information_lenguage_id; ?>" style="display: none;">
+                          <button type="submit" class="btn btn-default"><i class="fa fa-trash-o btn-azules1" aria-hidden="true"></i></button>
+                        </div>
+                      </form>
+                    </div>
+                  <?php } ?>
+                </div>
+              </div>
+              <div class="inffff-adaddd1__a">
+                <p><strong>Software</strong></p>
+                <!-- Inicio FORM --> 
+                <div class="space-uunn1__a">
+                  <form id="combo" method="post" action="connectDB/datos-postulante-software.php">
+                    <div class="col-md-6">    
+                      <div class="ssspccc-inpusssess1__a pasos-reg">  
+                        <div class="inpppputt1__a pasos-reg">     
+                          <select name="information_software">
+                            <option>- Seleccionar -</option>
+                              <option value="Microsoft Access">Microsoft Access</option>
+                              <option value="Microsoft Excel">Microsoft Excel</option>
+                              <option value="Microsoft Outlook">Microsoft Outlook</option>
+                              <option value="Microsoft PowerPoint">Microsoft PowerPoint</option>
+                              <option value="Microsoft Word">Microsoft Word</option>
+                              <option value="Open Office">Open Office</option>
+                              <option value="StarOffice">StarOffice</option>
+                              <option value="Lotus Notes">Lotus Notes</option>
+                              <option value="Pages">Pages</option>
+                              <option value="Numbers">Numbers</option>
+                              <option value="Keynote">Keynote</option>
+                          </select>
+                        </div>  
+                      </div>
+                    </div>  
+                    <div class="col-md-6">        
+                      <div class="ssspccc-inpusssess1__a">      
+                        <div class="inpppputt1__a">      
+                          <select name="information_software_level">
+                            <option>- Nivel -</option>
+                            <option>Básico </option>
+                            <option>Medio </option>
+                            <option>Avanzado </option>
+                          </select>
+                        </div>                 
+                      </div>
+                    </div>
+                    <div class="col-md-12" style="text-align:right;">
+                      <button type="submit" class="btn btn-default">Agregar</button>
+                    </div>
+                  </form>
+                </div>
+                <div style="border:1px solid #ddd; padding:.5em; margin:.5em;">
+                  <?php while($row_software = mysqli_fetch_assoc($result_software)) {
+                    $se_information_software_id = $row_software['se_software_id'];
+                    $se_information_software = $row_software['se_software'];
+                    $se_information_software_level = $row_software['se_software_level'];
+                    $se_user_id = $row_software['se_user_id']; 
+                  ?>
+                    <div class="row">
+                      <form id="combo" method="post" action="connectDB/datos-eliminar-software.php">
+                        <div class="col-md-3 boxxx-infforrr2__ab">
+                          <p style="width: 7em;"><?php echo $se_information_software ?></p>
+                          <input type="text" name="information_software" value="<?php echo $se_information_software; ?>" style="display: none;">
+                        </div>
+                        <div class="col-md-3 boxxx-infforrr2__ab">
+                          <p><?php echo $se_information_software_level ?></p>
+                          <input type="text" name="information_software_level" value="<?php echo $se_information_software_level; ?>" style="display: none;">
+                        </div>
+                        <div class="col-md-1 boxxx-infforrr2__a">
+                          <input type="text" name="information_software_id" value="<?php echo $se_information_software_id; ?>" style="display: none;">
+                          <button type="submit" class="btn btn-default"><i class="fa fa-trash-o btn-azules1" aria-hidden="true"></i></button>
+                        </div>
+                      </form>
+                    </div>
+                  <?php } ?>
+                </div>
+              </div>
+            </div> 
+          </div>     
+        </div>  
         <div class="clearfix"></div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        </div>                                        
-      </div>  
-    </form>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+        </div>                                          
+      </div>
     </div>
   </div>
 </div><!--FIN MODAL 4 -- INFORMACION COMPLEMENTARIA -->

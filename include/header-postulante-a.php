@@ -24,6 +24,7 @@ include("./connectDB/conn_db_se.php");
     $last_name = $row['se_user_last_name'];
     $position = $row['se_user_job_position'];
     $job_company = $row['se_user_job_company']; 
+    $photo = $row['se_user_photo']; 
   }
 
   ?>
@@ -41,7 +42,11 @@ include("./connectDB/conn_db_se.php");
                         <p><?php echo $job_company?></p>
                     </div>
                     <div class="usuario-img premium"> 
-                       <img src="img/user.jpg" width="75" height="75" alt="Usuario"/> 
+                    <?php if ($result){ ?>
+                        <img src="/surEmpleoLight/img/uploads/<?php echo $photo; ?>" width="75" height="75" alt="Usuario"/>     
+                    <?php }else{ ?>
+                        <img src="./img/user.jpg" width="75" height="75" alt="Usuario"/> 
+                    <?php } ?>
                     </div>
                 </div>
                 <div class="clear"></div>

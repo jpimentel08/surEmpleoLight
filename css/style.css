@@ -7000,7 +7000,7 @@ color: #fff;
 .texto-rojo { color:#E60A31; font-weight:bold; }
 .imagen-elementos { width:108px; height:auto; position:relative; }
 .img-bloqueo img { position:absolute; top:0; max-width:108px; width:108px; height:108px; opacity:.6; }
-.imagen-elementos2 { width:157px !important; height:auto; margin-bottom:10px; }
+.imagen-elementos2 { width:150px !important; height:150px; margin-bottom:10px; }
 .p-altura { margin-top:4px; margin-right:5px; }
 
 .bloquear-contacto h2 { display:inline-block; float:left; margin-right:10px; }

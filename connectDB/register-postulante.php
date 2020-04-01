@@ -84,7 +84,7 @@ if (!$conn) {
    				if (($_FILES["imagen"]["type"] == "image/gif") || ($_FILES["imagen"]["type"] == "image/jpeg") || ($_FILES["imagen"]["type"] == "image/jpg") || ($_FILES["imagen"]["type"] == "image/png")){
 					  
 					// Ruta donde se guardarán las imágenes que subamos
-      				$directorio = $_SERVER['DOCUMENT_ROOT'].'/surEmpleoLight/img/uploads';
+      				$directorio = $_SERVER['DOCUMENT_ROOT'].'/surEmpleoLight/img/uploads/';
 					  
 					// Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
       				move_uploaded_file($_FILES['imagen']['tmp_name'],$directorio.$nombre_img);

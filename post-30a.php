@@ -211,7 +211,11 @@ session_start();
                 <div class="row formato-cv" style="margin-bottom:1em;">
            	      <div class="col-md-6 formato-campos1">
                     <div class="col-md-4">
-                      <img src="img/default-user-image.png" class="img-responsive img-circle imagen-elementos2" alt=""/> 
+                    <?php if ($result){ ?>
+                      <img src="/surEmpleoLight/img/uploads/<?php echo $photo; ?>" class="img-responsive img-circle imagen-elementos2" alt=""/>      
+                    <?php }else{ ?>
+                      <img src="img/default-user-image.png" class="img-responsive img-circle imagen-elementos2" alt=""/>
+                    <?php } ?>
                     </div>
                     <div class="col-md-8">
                       <h1><?php echo $name ?> <?php echo $last_name?></h1>

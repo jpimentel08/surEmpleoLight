@@ -13,8 +13,14 @@ $last_name=$_POST['last_name'];
     <link rel="stylesheet" href="../css/bootstrap.min.css" media="screen" title="no title">
     <link rel="stylesheet" href="../css/bootstrap-theme.min.css" media="screen" title="no title">
     <link rel="stylesheet" href="../css/style.css" media="screen" title="no title">
+    <script language="JavaScript">
+  function redireccionar() {
+    
+    setTimeout("location.href='../post-30a.php'", 1000);
+  }
+  </script>
   </head>
-  <body>
+  <body onload="redireccionar()">
     <main>
       <!-- header portada -->
       <?php include "header-postulante-registro.php" ?>      
